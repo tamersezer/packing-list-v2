@@ -1,0 +1,636 @@
+{
+  "products": [
+    {
+      "weights": {
+        "gross": 35,
+        "net": 34
+      },
+      "boxDimensions": {
+        "height": 2,
+        "width": 4,
+        "length": 3
+      },
+      "boxQuantity": 1,
+      "hsCode": "3303.00.10.00.00",
+      "name": "Parfüm",
+      "id": "af8a"
+    },
+    {
+      "weights": {
+        "gross": 10,
+        "net": 9
+      },
+      "boxDimensions": {
+        "height": 31,
+        "width": 30,
+        "length": 31
+      },
+      "boxQuantity": 432,
+      "hsCode": "3303.00.90.00.11",
+      "name": "Kolonya",
+      "id": "b76d"
+    },
+    {
+      "weights": {
+        "gross": 4.5,
+        "net": 4
+      },
+      "boxDimensions": {
+        "height": 12,
+        "width": 54,
+        "length": 34
+      },
+      "boxQuantity": 12,
+      "hsCode": "3307.49.00.00.00",
+      "name": "Reed Diffuser",
+      "id": "7e66"
+    },
+    {
+      "id": "6106",
+      "weights": {
+        "gross": 6.5,
+        "net": 6.3
+      },
+      "boxDimensions": {
+        "height": 3,
+        "width": 2,
+        "length": 3
+      },
+      "boxQuantity": 8,
+      "hsCode": "3303.00.10.00.00",
+      "name": "Denem"
+    },
+    {
+      "id": "0f10",
+      "weights": {
+        "gross": 0.5,
+        "net": 0.4
+      },
+      "boxDimensions": {
+        "height": 1.5,
+        "width": 0.5,
+        "length": 1.5
+      },
+      "boxQuantity": 1,
+      "hsCode": "3303.00.90.00.11",
+      "name": "Deneme"
+    },
+    {
+      "id": "8cb0",
+      "weights": {
+        "gross": 100,
+        "net": 99
+      },
+      "boxDimensions": {
+        "height": 33,
+        "width": 32,
+        "length": 31
+      },
+      "boxQuantity": 65,
+      "hsCode": "3303.00.10.00.00",
+      "name": "Sıralama Denemesi"
+    },
+    {
+      "id": "98f9",
+      "weights": {
+        "gross": 9.6,
+        "net": 9.2
+      },
+      "boxDimensions": {
+        "height": 14,
+        "width": 31,
+        "length": 24
+      },
+      "boxQuantity": 48,
+      "hsCode": "3303.00.10.00.00",
+      "name": "Sansiro Perfume"
+    }
+  ],
+  "hsCodes": [
+    {
+      "id": "4",
+      "code": "3303.00.10.00.00"
+    },
+    {
+      "id": "120c",
+      "code": "3303.00.90.00.11"
+    },
+    {
+      "id": "626f",
+      "code": "3307.49.00.00.00"
+    }
+  ],
+  "packingLists": [
+    {
+      "name": "Deneme 1",
+      "createdAt": "2025-01-05T20:39:43.497Z",
+      "updatedAt": "2025-01-05T20:44:43.088Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "8c4409d6-4877-48c3-8be4-edd724550847",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 4.5,
+                  "net": 4
+                },
+                "boxDimensions": {
+                  "height": 12,
+                  "width": 54,
+                  "length": 34
+                },
+                "boxQuantity": 12,
+                "hsCode": "3307.49.00.00.00",
+                "name": "Reed Diffuser",
+                "id": "7e66"
+              },
+              "quantity": 12
+            },
+            {
+              "product": {
+                "weights": {
+                  "gross": 10,
+                  "net": 9
+                },
+                "boxDimensions": {
+                  "height": 31,
+                  "width": 30,
+                  "length": 31
+                },
+                "boxQuantity": 432,
+                "hsCode": "3303.00.90.00.11",
+                "name": "Kolonya",
+                "id": "b76d"
+              },
+              "quantity": 432
+            },
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 1
+            }
+          ],
+          "grossWeight": 4433,
+          "netWeight": 3970,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        },
+        {
+          "id": "c6fe6cd7-a3e6-474d-affa-16faffc5304c",
+          "packageNo": "2",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 1
+            },
+            {
+              "product": {
+                "id": "6106",
+                "weights": {
+                  "gross": 6.5,
+                  "net": 6.3
+                },
+                "boxDimensions": {
+                  "height": 3,
+                  "width": 2,
+                  "length": 3
+                },
+                "boxQuantity": 8,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Denem"
+              },
+              "quantity": 8
+            }
+          ],
+          "grossWeight": 111,
+          "netWeight": 84.4,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 150
+          },
+          "hsCode": "3303.00.10.00.00"
+        },
+        {
+          "id": "b7dd0d27-562b-48d9-8919-f209dfaa59b9",
+          "packageNo": "3 to 120",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 120
+            }
+          ],
+          "grossWeight": 4200,
+          "netWeight": 4080,
+          "dimensions": {
+            "length": 3,
+            "width": 4,
+            "height": 2
+          },
+          "hsCode": "3303.00.10.00.00"
+        }
+      ],
+      "totalGrossWeight": 8744,
+      "totalNetWeight": 8134.4,
+      "totalNumberOfBoxes": 574,
+      "id": "0c7a"
+    },
+    {
+      "id": "747d",
+      "name": "Deneme 2",
+      "createdAt": "2025-01-05T20:45:11.355Z",
+      "updatedAt": "2025-01-05T21:48:53.445Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "381e57ea-987c-44cf-9fcb-f75be1d6fc2d",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 1
+            }
+          ],
+          "grossWeight": 59,
+          "netWeight": 34,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          },
+          "hsCode": "3303.00.10.00.00"
+        },
+        {
+          "id": "132bc0ca-780c-41db-982f-ce298bea44fb",
+          "packageNo": "2",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 10,
+                  "net": 9
+                },
+                "boxDimensions": {
+                  "height": 31,
+                  "width": 30,
+                  "length": 31
+                },
+                "boxQuantity": 432,
+                "hsCode": "3303.00.90.00.11",
+                "name": "Kolonya",
+                "id": "b76d"
+              },
+              "quantity": 432
+            },
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 1
+            }
+          ],
+          "grossWeight": 4379,
+          "netWeight": 3922,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 200
+          }
+        },
+        {
+          "id": "c42f6e45-d612-4745-a10c-85923ff08df2",
+          "packageNo": "3",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 10,
+                  "net": 9
+                },
+                "boxDimensions": {
+                  "height": 31,
+                  "width": 30,
+                  "length": 31
+                },
+                "boxQuantity": 432,
+                "hsCode": "3303.00.90.00.11",
+                "name": "Kolonya",
+                "id": "b76d"
+              },
+              "quantity": 432
+            }
+          ],
+          "grossWeight": 120,
+          "netWeight": 80,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 112
+          },
+          "hsCode": "3303.00.90.00.11"
+        }
+      ],
+      "totalGrossWeight": 4558,
+      "totalNetWeight": 4036,
+      "totalNumberOfBoxes": 866
+    },
+    {
+      "id": "3fe7",
+      "name": "Demnnemğ",
+      "createdAt": "2025-01-05T20:55:51.255Z",
+      "updatedAt": "2025-01-05T20:56:23.651Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "4ab2a27c-823a-4ece-8fbf-6bf757bb907a",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 1
+            },
+            {
+              "product": {
+                "weights": {
+                  "gross": 4.5,
+                  "net": 4
+                },
+                "boxDimensions": {
+                  "height": 12,
+                  "width": 54,
+                  "length": 34
+                },
+                "boxQuantity": 12,
+                "hsCode": "3307.49.00.00.00",
+                "name": "Reed Diffuser",
+                "id": "7e66"
+              },
+              "quantity": 12
+            },
+            {
+              "product": {
+                "id": "6106",
+                "weights": {
+                  "gross": 6.5,
+                  "net": 6.3
+                },
+                "boxDimensions": {
+                  "height": 3,
+                  "width": 2,
+                  "length": 3
+                },
+                "boxQuantity": 8,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Denem"
+              },
+              "quantity": 8
+            }
+          ],
+          "grossWeight": 165,
+          "netWeight": 132.4,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        }
+      ],
+      "totalGrossWeight": 165,
+      "totalNetWeight": 132.4,
+      "totalNumberOfBoxes": 21
+    },
+    {
+      "name": "Son Deneme",
+      "createdAt": "2025-01-05T21:19:01.092Z",
+      "updatedAt": "2025-01-05T21:28:48.348Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "d6924576-04d6-4217-b03b-cd6aec1d5210",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 35,
+                  "net": 34
+                },
+                "boxDimensions": {
+                  "height": 2,
+                  "width": 4,
+                  "length": 3
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Parfüm",
+                "id": "af8a"
+              },
+              "quantity": 1
+            },
+            {
+              "product": {
+                "weights": {
+                  "gross": 4.5,
+                  "net": 4
+                },
+                "boxDimensions": {
+                  "height": 12,
+                  "width": 54,
+                  "length": 34
+                },
+                "boxQuantity": 12,
+                "hsCode": "3307.49.00.00.00",
+                "name": "Reed Diffuser",
+                "id": "7e66"
+              },
+              "quantity": 12
+            },
+            {
+              "product": {
+                "id": "0f10",
+                "weights": {
+                  "gross": 0.5,
+                  "net": 0.4
+                },
+                "boxDimensions": {
+                  "height": 1.5,
+                  "width": 0.5,
+                  "length": 1.5
+                },
+                "boxQuantity": 1,
+                "hsCode": "3303.00.90.00.11",
+                "name": "Deneme"
+              },
+              "quantity": 4
+            },
+            {
+              "product": {
+                "id": "8cb0",
+                "weights": {
+                  "gross": 100,
+                  "net": 99
+                },
+                "boxDimensions": {
+                  "height": 33,
+                  "width": 32,
+                  "length": 31
+                },
+                "boxQuantity": 65,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Sıralama Denemesi"
+              },
+              "quantity": 65
+            }
+          ],
+          "grossWeight": 6615,
+          "netWeight": 6518.6,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 116
+          }
+        },
+        {
+          "id": "5896ed28-9299-42db-a88a-0c008b2730df",
+          "packageNo": "2",
+          "items": [
+            {
+              "product": {
+                "weights": {
+                  "gross": 10,
+                  "net": 9
+                },
+                "boxDimensions": {
+                  "height": 31,
+                  "width": 30,
+                  "length": 31
+                },
+                "boxQuantity": 432,
+                "hsCode": "3303.00.90.00.11",
+                "name": "Kolonya",
+                "id": "b76d"
+              },
+              "quantity": 432
+            },
+            {
+              "product": {
+                "id": "6106",
+                "weights": {
+                  "gross": 6.5,
+                  "net": 6.3
+                },
+                "boxDimensions": {
+                  "height": 3,
+                  "width": 2,
+                  "length": 3
+                },
+                "boxQuantity": 8,
+                "hsCode": "3303.00.10.00.00",
+                "name": "Denem"
+              },
+              "quantity": 64
+            }
+          ],
+          "grossWeight": 4760,
+          "netWeight": 4291.2,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 165
+          }
+        }
+      ],
+      "totalGrossWeight": 11375,
+      "totalNetWeight": 10809.8,
+      "totalNumberOfBoxes": 578,
+      "id": "2915"
+    }
+  ]
+}
