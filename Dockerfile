@@ -25,11 +25,8 @@ WORKDIR /app
 # package.json ve package-lock.json dosyalarını kopyala
 COPY package*.json ./
 
-# Sadece production bağımlılıklarını yükle
-RUN npm install --only=production
-
-# json-server'ı local olarak yükle
-RUN npm install json-server
+# Production bağımlılıklarını yükle
+RUN npm ci --only=production
 
 # Build çıktısını ve gerekli dosyaları kopyala
 COPY --from=builder /app/build ./build
