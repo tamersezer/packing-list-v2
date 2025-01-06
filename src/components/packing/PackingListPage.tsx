@@ -75,7 +75,7 @@ export const PackingListPage: React.FC = () => {
 
       const rows = packageRow.items.map((item, index) => {
         const row = {
-          'Package No': index === 0 ? packageRow.packageNo : '',
+          'Package Number': index === 0 ? packageRow.packageNumber : '',
           'Product Name': item.product.name || '-',
           'Quantity': item.quantity || 0,
           'Gross Weight': index === 0 ? formatNumber(packageRow.grossWeight) : '',
@@ -94,7 +94,7 @@ export const PackingListPage: React.FC = () => {
 
     // Toplamları ekle
     excelData.push({
-      'Package No': '',
+      'Package Number': '',
       'Product Name': 'TOTAL',
       'Quantity': packingList.totalNumberOfBoxes || 0,
       'Gross Weight': formatNumber(packingList.totalGrossWeight),
