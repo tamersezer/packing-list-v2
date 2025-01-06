@@ -1,16 +1,12 @@
 import { Product } from './Product';
 
-export interface PackageItem {
-  product: Product;
-  quantity: number;
-  totalGrossWeight: number;
-  totalNetWeight: number;
-}
-
 export interface PackageRow {
   id: string;
   packageNo: string;
-  items: PackageItem[];
+  items: {
+    product: Product;
+    quantity: number;
+  }[];
   grossWeight: number;
   netWeight: number;
   dimensions: {

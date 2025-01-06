@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { useNavigate } from 'react-router-dom';
 import { packingListService } from '../../services/api';
-import type { PackingList, PackageItem } from '../../types/PackingList';
+import type { PackingList } from '../../types/PackingList';
 import { toast } from 'react-toastify';
 import * as XLSX from 'xlsx';
 
@@ -162,16 +162,6 @@ export const PackingListPage: React.FC = () => {
       toast.error('Failed to export to Excel');
       console.error('Excel export error:', error);
     }
-  };
-
-  const calculateTotals = (items: PackageItem[]) => {
-    return items.reduce(
-      (acc, item) => ({
-        gross: acc.gross + item.totalGrossWeight,
-        net: acc.net + item.totalNetWeight
-      }),
-      { gross: 0, net: 0 }
-    );
   };
 
   if (isLoading) {
