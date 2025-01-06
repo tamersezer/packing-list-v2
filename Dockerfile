@@ -12,11 +12,9 @@ FROM node:18-slim
 
 WORKDIR /app
 
-# package.json ve package-lock.json dosyalarını kopyala
-COPY package*.json ./
-
-# Production bağımlılıklarını yükle
-RUN npm ci --omit=dev
+# Önce package.json'ı kopyala ve bağımlılıkları yükle
+COPY package.json package-lock.json ./
+RUN npm ci --only=production
 
 # Build çıktısını ve gerekli dosyaları kopyala
 COPY --from=builder /app/build ./build
@@ -27,4 +25,4 @@ COPY server.js .
 EXPOSE 3001
 
 # Uygulamayı başlat
-CMD ["npm", "run", "serve"] 
+CMD ["node", "server.js"] 

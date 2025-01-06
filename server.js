@@ -1,21 +1,66 @@
-const jsonServer = require('json-server');
-const server = jsonServer.create();
-const router = jsonServer.router('./db.json');
-const middlewares = jsonServer.defaults({
-  static: './build'
+const express = require('express');
+const cors = require('cors');
+const path = require('path');
+const fs = require('fs');
+
+const app = express();
+app.use(cors());
+app.use(express.json());
+
+// Static dosyaları serve et
+app.use(express.static(path.join(__dirname, 'build')));
+
+// DB'yi oku
+let db = {};
+try {
+  db = JSON.parse(fs.readFileSync('./db.json', 'utf8'));
+} catch (error) {
+  console.error('Error reading db.json:', error);
+  db = { products: [], hsCodes: [], packingLists: [] };
+}
+
+// API routes
+app.get('/products', (req, res) => {
+  res.json(db.products);
 });
 
-// CORS ayarları
-server.use((req, res, next) => {
-  res.header('Access-Control-Allow-Origin', '*');
-  res.header('Access-Control-Allow-Headers', '*');
-  next();
+app.post('/products', (req, res) => {
+  const product = { ...req.body, id: Date.now().toString() };
+  db.products.push(product);
+  fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
+  res.json(product);
 });
 
-server.use(middlewares);
-server.use(router);
+app.get('/hsCodes', (req, res) => {
+  res.json(db.hsCodes);
+});
+
+app.post('/hsCodes', (req, res) => {
+  const hsCode = { ...req.body, id: Date.now().toString() };
+  db.hsCodes.push(hsCode);
+  fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
+  res.json(hsCode);
+});
+
+app.get('/packingLists', (req, res) => {
+  res.json(db.packingLists);
+});
+
+app.post('/packingLists', (req, res) => {
+  const packingList = { ...req.body, id: Date.now().toString() };
+  db.packingLists.push(packingList);
+  fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
+  res.json(packingList);
+});
+
+// Diğer CRUD operasyonları...
+
+// React router için catch-all route
+app.get('*', (req, res) => {
+  res.sendFile(path.join(__dirname, 'build', 'index.html'));
+});
 
 const PORT = process.env.PORT || 3001;
-server.listen(PORT, () => {
-  console.log(`JSON Server is running on port ${PORT}`);
+app.listen(PORT, () => {
+  console.log(`Server is running on port ${PORT}`);
 }); 
