@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { productService } from '../../services/api';
-import type { Product } from '../../types/Product';
+import { Product, ProductResponse } from '../../types/Product';
 import { toast } from 'react-toastify';
 import { ProductForm } from './ProductForm';
 import { Modal } from '../common/Modal';
@@ -16,11 +16,10 @@ export const ProductList: React.FC = () => {
 
   const fetchProducts = async () => {
     try {
-      const data = await productService.getAll();
-      setProducts(data);
+      const response = await productService.getAll();
+      setProducts(response.items || []);
     } catch (error) {
       toast.error('Failed to load products');
-      setError('Failed to fetch products');
     } finally {
       setIsLoading(false);
     }
