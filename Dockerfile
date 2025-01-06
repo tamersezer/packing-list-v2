@@ -1,32 +1,22 @@
 # Build aşaması
 FROM node:18 as builder
 
-# Çalışma dizinini ayarla
 WORKDIR /app
-
-# Package.json ve package-lock.json dosyalarını kopyala
 COPY package*.json ./
-
-# Bağımlılıkları yükle
-RUN npm install
-
-# Kaynak kodları kopyala
+RUN npm ci
 COPY . .
-
-# Build işlemini gerçekleştir
 RUN CI=false npm run build
 
 # Çalıştırma aşaması
 FROM node:18-slim
 
-# Çalışma dizinini ayarla
 WORKDIR /app
 
 # package.json ve package-lock.json dosyalarını kopyala
 COPY package*.json ./
 
 # Production bağımlılıklarını yükle
-RUN npm ci --only=production
+RUN npm ci --omit=dev
 
 # Build çıktısını ve gerekli dosyaları kopyala
 COPY --from=builder /app/build ./build
@@ -37,4 +27,4 @@ COPY server.js .
 EXPOSE 3001
 
 # Uygulamayı başlat
-CMD ["node", "server.js"] 
+CMD ["npm", "run", "serve"] 
