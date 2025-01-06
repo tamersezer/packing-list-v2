@@ -106,80 +106,26 @@ app.post('/products', async (req, res, next) => {
   }
 });
 
-app.get('/hsCodes', async (req, res, next) => {
-  try {
-    res.json(db.hsCodes);
-  } catch (error) {
-    next(error);
-  }
+app.get('/hsCodes', (req, res) => {
+  res.json(db.hsCodes);
 });
 
-app.post('/hsCodes', async (req, res, next) => {
-  try {
-    const hsCode = { ...req.body, id: Date.now().toString() };
-    
-    // Validation
-    if (!hsCode.code) {
-      return res.status(400).json({
-        error: 'Validation failed',
-        message: 'HS Code is required'
-      });
-    }
-
-    // Duplicate check
-    if (db.hsCodes.some(code => code.code === hsCode.code)) {
-      return res.status(400).json({
-        error: 'Validation failed',
-        message: 'HS Code already exists'
-      });
-    }
-
-    db.hsCodes.push(hsCode);
-    await fs.promises.writeFile('./db.json', JSON.stringify(db, null, 2));
-    res.status(201).json(hsCode);
-  } catch (error) {
-    next(error);
-  }
+app.post('/hsCodes', (req, res) => {
+  const hsCode = { ...req.body, id: Date.now().toString() };
+  db.hsCodes.push(hsCode);
+  fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
+  res.json(hsCode);
 });
 
-app.get('/packingLists', async (req, res, next) => {
-  try {
-    res.json(db.packingLists);
-  } catch (error) {
-    next(error);
-  }
+app.get('/packingLists', (req, res) => {
+  res.json(db.packingLists);
 });
 
-app.post('/packingLists', async (req, res, next) => {
-  try {
-    const packingList = { 
-      ...req.body, 
-      id: Date.now().toString(),
-      createdAt: new Date().toISOString(),
-      updatedAt: new Date().toISOString()
-    };
-    
-    // Validation
-    if (!packingList.name) {
-      return res.status(400).json({
-        error: 'Validation failed',
-        message: 'Packing list name is required'
-      });
-    }
-
-    if (!Array.isArray(packingList.items)) {
-      return res.status(400).json({
-        error: 'Validation failed',
-        message: 'Items must be an array'
-      });
-    }
-
-    db.packingLists.push(packingList);
-    await fs.promises.writeFile('./db.json', JSON.stringify(db, null, 2));
-    res.status(201).json(packingList);
-  } catch (error) {
-    next(error);
-  }
+app.post('/packingLists', (req, res) => {
+  const packingList = { ...req.body, id: Date.now().toString() };
+  db.packingLists.push(packingList);
+  fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
+  res.json(packingList);
 });
 
 // Diğer CRUD operasyonları...
