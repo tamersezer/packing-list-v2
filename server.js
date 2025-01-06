@@ -6,6 +6,8 @@ const logger = require('./logger');
 const { createBackup } = require('./backup');
 const { apiLimiter } = require('./rate-limiter');
 const helmet = require('helmet');
+const compression = require('compression');
+const { paginate } = require('./utils/pagination');
 
 // Error handler middleware
 const errorHandler = (err, req, res, next) => {
@@ -50,6 +52,9 @@ const errorHandler = (err, req, res, next) => {
 };
 
 const app = express();
+
+// Compression middleware
+app.use(compression());
 
 // Security headers
 app.use(helmet({
@@ -99,10 +104,34 @@ app.use(cors({
   methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
 }));
 
-app.use(express.json());
+app.use(express.json({ limit: '10kb' }));
 
 // Static dosyaları serve et
 app.use(express.static(path.join(__dirname, 'build')));
+
+// Response caching
+app.use((req, res, next) => {
+  // Static dosyalar için cache
+  if (req.url.startsWith('/static/')) {
+    res.setHeader('Cache-Control', 'public, max-age=31536000'); // 1 yıl
+  } 
+  // API responses için cache
+  else if (req.url.startsWith('/api/')) {
+    res.setHeader('Cache-Control', 'private, max-age=300'); // 5 dakika
+  }
+  next();
+});
+
+// Request timeout
+app.use((req, res, next) => {
+  req.setTimeout(5000, () => {
+    res.status(408).json({ 
+      error: 'Request Timeout',
+      message: 'Request took too long to process'
+    });
+  });
+  next();
+});
 
 // DB'yi oku
 let db = {};
@@ -117,22 +146,60 @@ try {
 async function saveDB() {
   try {
     await fs.promises.writeFile('./db.json', JSON.stringify(db, null, 2));
-    await createBackup(); // Her değişiklikte yedek al
+    await createBackup();
+    // İlgili cache'leri temizle
+    cache.delete('products');
+    cache.delete('hsCodes');
+    cache.delete('packingLists');
   } catch (error) {
     logger.error('Error saving database:', { error: error.message });
     throw error;
   }
 }
 
-// API routes
-app.get('/api/products', async (req, res, next) => {
-  try {
-    const products = db.products;
-    res.json(products);
-  } catch (error) {
-    next(error);
-  }
-});
+// API routes için memory cache
+const cache = new Map();
+const CACHE_DURATION = 5 * 60 * 1000; // 5 dakika
+
+function withCache(key, getData) {
+  return async (req, res, next) => {
+    try {
+      const cacheKey = `${key}-${JSON.stringify(req.query)}`;
+      const cached = cache.get(cacheKey);
+      
+      if (cached && Date.now() - cached.timestamp < CACHE_DURATION) {
+        return res.json(cached.data);
+      }
+      
+      const data = await getData(req);
+      cache.set(cacheKey, {
+        data,
+        timestamp: Date.now()
+      });
+      
+      res.json(data);
+    } catch (error) {
+      next(error);
+    }
+  };
+}
+
+// Cache'li route'lar
+app.get('/api/products', withCache('products', async (req) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  return paginate(db.products, page, limit);
+}));
+
+app.get('/api/hsCodes', withCache('hsCodes', async () => {
+  return db.hsCodes;
+}));
+
+app.get('/api/packingLists', withCache('packingLists', async (req) => {
+  const page = parseInt(req.query.page) || 1;
+  const limit = parseInt(req.query.limit) || 10;
+  return paginate(db.packingLists, page, limit);
+}));
 
 app.post('/api/products', async (req, res, next) => {
   try {
@@ -149,14 +216,6 @@ app.post('/api/products', async (req, res, next) => {
     db.products.push(product);
     await saveDB();
     res.status(201).json(product);
-  } catch (error) {
-    next(error);
-  }
-});
-
-app.get('/api/hsCodes', async (req, res, next) => {
-  try {
-    res.json(db.hsCodes);
   } catch (error) {
     next(error);
   }
@@ -190,14 +249,6 @@ app.post('/api/hsCodes', async (req, res, next) => {
   }
 });
 
-app.get('/api/packingLists', async (req, res, next) => {
-  try {
-    res.json(db.packingLists);
-  } catch (error) {
-    next(error);
-  }
-});
-
 app.post('/api/packingLists', async (req, res, next) => {
   try {
     const packingList = { 
@@ -225,6 +276,81 @@ app.post('/api/packingLists', async (req, res, next) => {
     db.packingLists.push(packingList);
     await saveDB();
     res.status(201).json(packingList);
+  } catch (error) {
+    next(error);
+  }
+});
+
+// Batch işlemleri için yeni endpoint'ler
+app.post('/api/products/batch', async (req, res, next) => {
+  try {
+    const { products } = req.body;
+    
+    if (!Array.isArray(products)) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        message: 'Products must be an array'
+      });
+    }
+    
+    // Validation
+    const invalidProducts = products.filter(p => !p.name || !p.hsCode);
+    if (invalidProducts.length > 0) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        message: 'All products must have name and HS Code',
+        invalidProducts
+      });
+    }
+    
+    // Add IDs and save
+    const newProducts = products.map(product => ({
+      ...product,
+      id: Date.now().toString() + Math.random().toString(36).substr(2, 9)
+    }));
+    
+    db.products.push(...newProducts);
+    await saveDB();
+    
+    // Clear cache
+    cache.delete('products');
+    
+    res.status(201).json(newProducts);
+  } catch (error) {
+    next(error);
+  }
+});
+
+app.delete('/api/products/batch', async (req, res, next) => {
+  try {
+    const { ids } = req.body;
+    
+    if (!Array.isArray(ids)) {
+      return res.status(400).json({
+        error: 'Validation failed',
+        message: 'IDs must be an array'
+      });
+    }
+    
+    const initialLength = db.products.length;
+    db.products = db.products.filter(p => !ids.includes(p.id));
+    
+    if (db.products.length === initialLength) {
+      return res.status(404).json({
+        error: 'Not found',
+        message: 'No products found with the provided IDs'
+      });
+    }
+    
+    await saveDB();
+    
+    // Clear cache
+    cache.delete('products');
+    
+    res.json({ 
+      message: 'Products deleted successfully',
+      deletedCount: initialLength - db.products.length
+    });
   } catch (error) {
     next(error);
   }

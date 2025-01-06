@@ -1,11 +1,20 @@
 import type { Product } from '../types/Product';
 import type { PackingList } from '../types/PackingList';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_URL = (process.env.REACT_APP_API_URL || 'http://localhost:3001') + '/api';
 
 export const productService = {
-  async getAll(): Promise<Product[]> {
-    const response = await fetch(`${API_URL}/products`);
+  async getAll(page = 1, limit = 10): Promise<{ 
+    items: Product[], 
+    pagination: {
+      currentPage: number;
+      totalPages: number;
+      totalItems: number;
+      hasNextPage: boolean;
+      hasPrevPage: boolean;
+    }
+  }> {
+    const response = await fetch(`${API_URL}/products?page=${page}&limit=${limit}`);
     
     if (!response.ok) {
       throw new Error('Failed to fetch products');
