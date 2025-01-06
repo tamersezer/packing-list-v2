@@ -1,5 +1,6 @@
 import React from 'react';
 import { exportToExcel } from '../services/excelService';
+import type { PackingList } from '../types/PackingList';
 
 export const PackingListExport: React.FC<{ packingList: PackingList }> = ({ packingList }) => {
   const handleExport = async () => {
@@ -7,7 +8,6 @@ export const PackingListExport: React.FC<{ packingList: PackingList }> = ({ pack
       await exportToExcel(packingList);
     } catch (error) {
       console.error('Export failed:', error);
-      // Hata mesajını göster
     }
   };
 

@@ -1,5 +1,5 @@
 import ExcelJS from 'exceljs';
-import type { PackingList } from '../types/Product';
+import type { PackingList } from '../types/PackingList';
 
 export async function exportToExcel(packingList: PackingList) {
   try {

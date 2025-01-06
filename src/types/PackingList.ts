@@ -1,30 +1,15 @@
 import { Product } from './Product';
 
-export interface PackageRow {
-  id: string;
-  packageNo: string;
-  items: {
-    product: Product;
-    quantity: number;
-  }[];
-  grossWeight: number;
-  netWeight: number;
-  dimensions: {
-    length: number;
-    width: number;
-    height: number;
-  };
-  hsCode?: string;
+export interface PackingListItem {
+  boxNo: string;
+  product: Product;
+  quantity: number;
+  mergeRows?: number;
 }
 
 export interface PackingList {
   id?: string;
-  name: string;
-  createdAt: string;
-  updatedAt: string;
-  status: 'draft' | 'completed';
-  items: PackageRow[];
-  totalGrossWeight: number;
-  totalNetWeight: number;
-  totalNumberOfBoxes: number;
+  invoiceNo?: string;
+  date?: string;
+  items: PackingListItem[];
 } 
