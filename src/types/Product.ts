@@ -12,15 +12,4 @@ export interface Product {
     net: number;
     gross: number;
   };
-}
-
-export interface ProductResponse {
-  items: Product[];
-  pagination: {
-    currentPage: number;
-    totalPages: number;
-    totalItems: number;
-    hasNextPage: boolean;
-    hasPrevPage: boolean;
-  };
 } 

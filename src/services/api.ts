@@ -11,8 +11,7 @@ export const productService = {
       throw new Error('Failed to fetch products');
     }
     
-    const data = await response.json();
-    return Array.isArray(data) ? data : data.items || [];
+    return response.json();
   },
 
   async create(product: Product): Promise<Product> {

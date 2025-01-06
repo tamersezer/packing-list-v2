@@ -33,7 +33,7 @@ export const EditPackageModal: React.FC<EditPackageModalProps> = ({
     }), { gross: 0, net: 0 });
 
     // Palet ağırlığını ekle
-    if (packageData.packageNumber.indexOf('to') === -1) { // Palet kontrolü
+    if (packageData.packageNo.indexOf('to') === -1) { // Palet kontrolü
       weights.gross += 24;
     }
 
@@ -143,7 +143,7 @@ export const EditPackageModal: React.FC<EditPackageModalProps> = ({
       <div className="bg-white dark:bg-gray-800 rounded-lg p-6 max-w-2xl w-full max-h-[90vh] overflow-y-auto">
         <div className="flex justify-between items-center mb-4">
           <h2 className="text-xl font-bold text-gray-900 dark:text-white">
-            Edit Package {editedPackage.packageNumber}
+            Edit Package {editedPackage.packageNo}
           </h2>
           <button
             onClick={onClose}

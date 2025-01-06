@@ -9,21 +9,26 @@ export interface PackageItem {
 
 export interface PackageRow {
   id: string;
+  packageNo: string;
   items: PackageItem[];
-  packageNumber: string;
-  totalGrossWeight: number;
-  totalNetWeight: number;
+  grossWeight: number;
+  netWeight: number;
+  dimensions: {
+    length: number;
+    width: number;
+    height: number;
+  };
+  hsCode?: string;
 }
 
 export interface PackingList {
   id?: string;
   name: string;
-  date: string;
-  packageType: 'box' | 'pallet';
+  createdAt: string;
+  updatedAt: string;
+  status: 'draft' | 'completed';
   items: PackageRow[];
-  totals: {
-    grossWeight: number;
-    netWeight: number;
-    packageCount: number;
-  };
+  totalGrossWeight: number;
+  totalNetWeight: number;
+  totalNumberOfBoxes: number;
 } 

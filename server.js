@@ -5,24 +5,21 @@ const fs = require('fs');
 
 const app = express();
 
-// CORS ayarlarını güncelleyin
+// CORS ayarlarını production için güvenli hale getir
 const allowedOrigins = [
   'http://localhost:3000',
-  'https://packing-lists.netlify.app',
-  'https://packing-list-production.up.railway.app'
+  'https://your-frontend-domain.netlify.app' // Netlify domain'inizi buraya ekleyin
 ];
 
 app.use(cors({
   origin: function(origin, callback) {
+    // origin null olabilir (örn: Postman kullanırken)
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      console.log('Blocked origin:', origin); // Debug için
       callback(new Error('CORS policy violation'));
     }
-  },
-  credentials: true,
-  methods: ['GET', 'POST', 'PUT', 'DELETE', 'OPTIONS']
+  }
 }));
 
 app.use(express.json());
