@@ -2,16 +2,10 @@ const express = require('express');
 const cors = require('cors');
 const path = require('path');
 const fs = require('fs');
-const logger = require('./logger');
 
 // Error handler middleware
 const errorHandler = (err, req, res, next) => {
-  logger.error('Error occurred:', { 
-    error: err.message, 
-    stack: err.stack,
-    path: req.path,
-    method: req.method
-  });
+  console.error(err.stack);
   
   // CORS hatası
   if (err.message.includes('CORS')) {
@@ -60,7 +54,7 @@ app.use(cors({
     if (!origin || allowedOrigins.indexOf(origin) !== -1) {
       callback(null, true);
     } else {
-      logger.warn('Blocked CORS request:', { origin });
+      console.log('Blocked origin:', origin); // Debug için
       callback(new Error('CORS policy violation'));
     }
   },
@@ -78,7 +72,7 @@ let db = {};
 try {
   db = JSON.parse(fs.readFileSync('./db.json', 'utf8'));
 } catch (error) {
-  logger.error('Error reading db.json:', { error: error.message });
+  console.error('Error reading db.json:', error);
   db = { products: [], hsCodes: [], packingLists: [] };
 }
 
@@ -195,30 +189,19 @@ app.get('*', (req, res) => {
   res.sendFile(path.join(__dirname, 'build', 'index.html'));
 });
 
-// Request logging middleware
-app.use((req, res, next) => {
-  logger.info('Incoming request:', {
-    method: req.method,
-    path: req.path,
-    query: req.query,
-    ip: req.ip
-  });
-  next();
-});
-
 // Error handler middleware'i en sonda kullan
 app.use(errorHandler);
 
 const PORT = process.env.PORT || 3001;
 app.listen(PORT, () => {
-  logger.info(`Server is running on port ${PORT}`);
+  console.log(`Server is running on port ${PORT}`);
 });
 
 // Graceful shutdown
 process.on('SIGTERM', () => {
-  logger.info('SIGTERM signal received: closing HTTP server');
+  console.log('SIGTERM signal received: closing HTTP server');
   app.close(() => {
-    logger.info('HTTP server closed');
+    console.log('HTTP server closed');
     process.exit(0);
   });
 }); 
