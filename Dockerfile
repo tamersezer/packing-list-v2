@@ -2,7 +2,7 @@
 FROM node:18 as builder
 
 WORKDIR /app
-COPY package*.json ./
+COPY package.json ./
 RUN npm install
 COPY . .
 RUN CI=false npm run build
@@ -13,7 +13,7 @@ FROM node:18-slim
 WORKDIR /app
 
 # Önce package.json'ı kopyala ve bağımlılıkları yükle
-COPY package.json package-lock.json ./
+COPY package.json ./
 RUN npm install --production
 
 # Build çıktısını ve gerekli dosyaları kopyala
