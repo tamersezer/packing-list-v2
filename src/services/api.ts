@@ -1,7 +1,7 @@
 import type { Product } from '../types/Product';
 import type { PackingList } from '../types/PackingList';
 
-const API_URL = 'http://localhost:3001';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
 
 export const productService = {
   async getAll(): Promise<Product[]> {
