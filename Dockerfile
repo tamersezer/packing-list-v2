@@ -22,8 +22,14 @@ FROM node:18-slim
 # Çalışma dizinini ayarla
 WORKDIR /app
 
-# json-server'ı yükle
-RUN npm install -g json-server
+# package.json ve package-lock.json dosyalarını kopyala
+COPY package*.json ./
+
+# Sadece production bağımlılıklarını yükle
+RUN npm install --only=production
+
+# json-server'ı local olarak yükle
+RUN npm install json-server
 
 # Build çıktısını ve gerekli dosyaları kopyala
 COPY --from=builder /app/build ./build
