@@ -166,7 +166,7 @@ export const PackingListForm: React.FC = () => {
       grossWeight,
       netWeight
     }));
-  }, [packageItems, packageType]);
+  }, [packageItems, packageType, calculateTotals]);
 
   useEffect(() => {
     if (packageType === 'pallet') {
@@ -319,22 +319,22 @@ export const PackingListForm: React.FC = () => {
 
   // Mevcut paket listesini yükle
   useEffect(() => {
-    const loadPackingList = async () => {
-      if (id) {
-        try {
-          const data = await packingListService.getById(id);
-          setPackingList(data);
-          setPackageRows(data.items);
-          setNextPackageNumber(data.items); // Yeni eklendi
-        } catch (error) {
-          toast.error('Failed to load packing list');
-          navigate('/packing-list');
+    if (isEditing) {
+      const loadPackingList = async () => {
+        if (id) {
+          try {
+            const data = await packingListService.getById(id);
+            setPackingList(data);
+            setPackageRows(data.items);
+          } catch (error) {
+            toast.error('Failed to load packing list');
+            navigate('/packing-list');
+          }
         }
-      }
-    };
-
-    loadPackingList();
-  }, [id, navigate]);
+      };
+      loadPackingList();
+    }
+  }, [id, navigate, isEditing]);
 
   // Package Type değiştiğinde input'u enable/disable yap
   useEffect(() => {
@@ -376,7 +376,7 @@ export const PackingListForm: React.FC = () => {
     }, 1000);
 
     return () => clearTimeout(timeoutId);
-  }, [packingList.name, packageRows, id]);
+  }, [packingList, packageRows, id]);
 
   // Sayfadan çıkmadan önce kontrol
   useEffect(() => {

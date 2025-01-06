@@ -4,7 +4,6 @@ import { packingListService } from '../../services/api';
 import type { PackingList } from '../../types/PackingList';
 import { toast } from 'react-toastify';
 import * as XLSX from 'xlsx';
-import { Product } from '../../types/Product';
 
 export const PackingListPage: React.FC = () => {
   const [packingLists, setPackingLists] = useState<PackingList[]>([]);
