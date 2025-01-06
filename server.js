@@ -4,7 +4,24 @@ const path = require('path');
 const fs = require('fs');
 
 const app = express();
-app.use(cors());
+
+// CORS ayarlarını production için güvenli hale getir
+const allowedOrigins = [
+  'http://localhost:3000',
+  'https://your-frontend-domain.netlify.app' // Netlify domain'inizi buraya ekleyin
+];
+
+app.use(cors({
+  origin: function(origin, callback) {
+    // origin null olabilir (örn: Postman kullanırken)
+    if (!origin || allowedOrigins.indexOf(origin) !== -1) {
+      callback(null, true);
+    } else {
+      callback(new Error('CORS policy violation'));
+    }
+  }
+}));
+
 app.use(express.json());
 
 // Static dosyaları serve et
