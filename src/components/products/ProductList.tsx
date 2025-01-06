@@ -1,11 +1,10 @@
 import React, { useEffect, useState } from 'react';
 import { productService } from '../../services/api';
-import type { Product } from '../../types/Product';
+import { Product, ProductResponse } from '../../types/Product';
 import { toast } from 'react-toastify';
 import { ProductForm } from './ProductForm';
 import { Modal } from '../common/Modal';
 import { HSCodeList } from './HSCodeList';
-import { Pagination } from '../common/Pagination';
 
 export const ProductList: React.FC = () => {
   const [products, setProducts] = useState<Product[]>([]);
@@ -14,22 +13,13 @@ export const ProductList: React.FC = () => {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isHSCodeModalVisible, setIsHSCodeModalVisible] = useState(false);
-  const [currentPage, setCurrentPage] = useState(1);
-  const [pagination, setPagination] = useState({
-    totalPages: 1,
-    totalItems: 0,
-    hasNextPage: false,
-    hasPrevPage: false
-  });
 
   const fetchProducts = async () => {
     try {
-      const response = await productService.getAll(currentPage);
-      setProducts(response.items);
-      setPagination(response.pagination);
-    } catch (err) {
-      setError('Failed to fetch products');
-      toast.error('Failed to fetch products');
+      const response = await productService.getAll();
+      setProducts(response.items || []);
+    } catch (error) {
+      toast.error('Failed to load products');
     } finally {
       setIsLoading(false);
     }
@@ -37,7 +27,7 @@ export const ProductList: React.FC = () => {
 
   useEffect(() => {
     fetchProducts();
-  }, [currentPage]);
+  }, []);
 
   const handleDelete = async (id: string) => {
     if (window.confirm('Are you sure you want to delete this product?')) {
@@ -182,14 +172,6 @@ export const ProductList: React.FC = () => {
           </tbody>
         </table>
       </div>
-
-      <Pagination
-        currentPage={currentPage}
-        totalPages={pagination.totalPages}
-        hasNextPage={pagination.hasNextPage}
-        hasPrevPage={pagination.hasPrevPage}
-        onPageChange={setCurrentPage}
-      />
     </div>
   );
 }; 
