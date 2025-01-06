@@ -16,8 +16,8 @@ interface PackageRange {
 interface PackageItem {
   product: Product;
   quantity: number;
-  totalGrossWeight: number;
-  totalNetWeight: number;
+  boxNo: string;
+  mergeRows?: number;
 }
 
 interface PackageTotals {
@@ -53,14 +53,9 @@ export const PackingListForm: React.FC = () => {
   const isEditing = Boolean(id);
 
   const [packingList, setPackingList] = useState<PackingList>({
-    name: '',
-    createdAt: new Date().toISOString(),
-    updatedAt: new Date().toISOString(),
-    status: 'draft',
-    items: [],
-    totalGrossWeight: 0,
-    totalNetWeight: 0,
-    totalNumberOfBoxes: 0
+    invoiceNo: '',
+    date: new Date().toISOString().split('T')[0],
+    items: []
   });
 
   const [packageType, setPackageType] = useState<PackageType>('pallet');
@@ -115,8 +110,7 @@ export const PackingListForm: React.FC = () => {
     setPackageItems(prev => [...prev, {
       product,
       quantity: product.boxQuantity,
-      totalGrossWeight: gross,
-      totalNetWeight: net
+      boxNo: product.boxNo
     }]);
   };
 
@@ -124,12 +118,9 @@ export const PackingListForm: React.FC = () => {
     const numValue = parseInt(value) || 1;
     setPackageItems(prev => prev.map((item, i) => {
       if (i === index) {
-        const { gross, net } = calculateWeights(item.product, numValue);
         return {
           ...item,
-          quantity: numValue,
-          totalGrossWeight: gross,
-          totalNetWeight: net
+          quantity: numValue
         };
       }
       return item;
@@ -412,6 +403,31 @@ export const PackingListForm: React.FC = () => {
       }
     } else {
       navigate('/packing-list');
+    }
+  };
+
+  const handleSubmit = async () => {
+    try {
+      const newPackingList: PackingList = {
+        ...packingList,
+        items: packageItems.map(item => ({
+          boxNo: item.boxNo,
+          product: item.product,
+          quantity: item.quantity,
+          mergeRows: item.mergeRows
+        }))
+      };
+
+      if (id) {
+        await packingListService.update(id, newPackingList);
+      } else {
+        await packingListService.create(newPackingList);
+      }
+
+      toast.success('Packing list saved successfully');
+      navigate('/packing-list');
+    } catch (error) {
+      toast.error('Failed to save packing list');
     }
   };
 

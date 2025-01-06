@@ -67,10 +67,32 @@ app.get('/packingLists', (req, res) => {
 });
 
 app.post('/packingLists', (req, res) => {
-  const packingList = { ...req.body, id: Date.now().toString() };
+  const packingList = {
+    ...req.body,
+    id: Date.now().toString(),
+    createdAt: new Date().toISOString()
+  };
   db.packingLists.push(packingList);
   fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
   res.json(packingList);
+});
+
+app.put('/packingLists/:id', (req, res) => {
+  const { id } = req.params;
+  const index = db.packingLists.findIndex(p => p.id === id);
+  
+  if (index === -1) {
+    return res.status(404).json({ error: 'Packing list not found' });
+  }
+
+  db.packingLists[index] = {
+    ...req.body,
+    id,
+    updatedAt: new Date().toISOString()
+  };
+
+  fs.writeFileSync('./db.json', JSON.stringify(db, null, 2));
+  res.json(db.packingLists[index]);
 });
 
 // Diğer CRUD operasyonları...
