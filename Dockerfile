@@ -3,7 +3,7 @@ FROM node:18 as builder
 
 WORKDIR /app
 COPY package*.json ./
-RUN npm ci
+RUN npm install
 COPY . .
 RUN CI=false npm run build
 
@@ -14,7 +14,7 @@ WORKDIR /app
 
 # Önce package.json'ı kopyala ve bağımlılıkları yükle
 COPY package.json package-lock.json ./
-RUN npm ci --only=production
+RUN npm install --production
 
 # Build çıktısını ve gerekli dosyaları kopyala
 COPY --from=builder /app/build ./build
