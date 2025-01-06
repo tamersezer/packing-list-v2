@@ -12,7 +12,7 @@ export const productService = {
     }
     
     const data = await response.json();
-    return Array.isArray(data) ? data : data.items || [];
+    return data;
   },
 
   async create(product: Product): Promise<Product> {
