@@ -51,7 +51,12 @@ export const EditPackageModal: React.FC<EditPackageModalProps> = ({
 
     const newItems = [
       ...editedPackage.items,
-      { product: selectedProduct, quantity }
+      { 
+      product: selectedProduct, 
+      quantity,
+      totalGrossWeight: selectedProduct.weights.gross * quantity,  // Ekle
+      totalNetWeight: selectedProduct.weights.net * quantity     // Ekle
+      }
     ];
 
     const weights = calculateWeights(newItems);
