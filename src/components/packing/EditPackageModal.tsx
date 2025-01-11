@@ -101,9 +101,21 @@ export const EditPackageModal: React.FC<EditPackageModalProps> = ({
       };
     }
 
+<<<<<<< HEAD
     const weights = calculatePackageWeights(updatedPackage.items, isPallet);
     updatedPackage.grossWeight = weights.gross;
     updatedPackage.netWeight = weights.net;
+=======
+    const newItems = [
+      ...editedPackage.items,
+      { 
+      product: selectedProduct, 
+      quantity,
+      totalGrossWeight: selectedProduct.weights.gross * quantity,  // Ekle
+      totalNetWeight: selectedProduct.weights.net * quantity     // Ekle
+      }
+    ];
+>>>>>>> 02752ff8da9178f19ef7697e1a8a4af9e0425ba4
 
     setEditedPackage(updatedPackage);
     setSelectedProduct(null);
