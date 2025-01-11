@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from 'react';
 import { hsCodeService } from '../../services/api';
 import { toast } from 'react-toastify';
+import { LoadingSpinner } from '../common/LoadingSpinner';
 
 interface HSCodeListProps {
   onClose: () => void;
@@ -14,7 +15,8 @@ export const HSCodeList: React.FC<HSCodeListProps> = ({ onClose }) => {
   const fetchHSCodes = async () => {
     try {
       const codes = await hsCodeService.getAll();
-      setHsCodes(codes);
+      const validCodes = codes.filter(code => code && code.trim() !== '');
+      setHsCodes(validCodes);
     } catch (error) {
       toast.error('Failed to load HS Codes');
     } finally {
@@ -26,28 +28,53 @@ export const HSCodeList: React.FC<HSCodeListProps> = ({ onClose }) => {
     fetchHSCodes();
   }, []);
 
+  const formatHSCode = (code: string): string => {
+    const numbers = code.replace(/\D/g, '');
+    
+    if (numbers.length !== 12) {
+      throw new Error('HS Code must be exactly 12 digits');
+    }
+
+    return `${numbers.slice(0, 4)}.${numbers.slice(4, 6)}.${numbers.slice(6, 8)}.${numbers.slice(8, 10)}.${numbers.slice(10, 12)}`;
+  };
+
   const handleAdd = async () => {
-    if (!newHSCode.trim()) {
+    if (!newHSCode) {
       toast.error('Please enter an HS Code');
       return;
     }
 
     try {
-      await hsCodeService.add(newHSCode);
-      toast.success('HS Code added successfully');
+      const formattedHSCode = formatHSCode(newHSCode);
+      
+      if (hsCodes.includes(formattedHSCode)) {
+        toast.error('This HS Code already exists');
+        return;
+      }
+
+      await hsCodeService.add(formattedHSCode);
+      setHsCodes(prev => [...prev, formattedHSCode]);
       setNewHSCode('');
-      fetchHSCodes();
+      toast.success('HS Code added successfully');
     } catch (error) {
-      toast.error('Failed to add HS Code');
+      if (error instanceof Error) {
+        toast.error(error.message);
+      } else {
+        toast.error('Failed to add HS Code');
+      }
     }
   };
 
   const handleDelete = async (code: string) => {
-    if (window.confirm(`Are you sure you want to delete HS Code: ${code}?`)) {
+    if (!code || code.trim() === '') {
+      return;
+    }
+
+    if (window.confirm('Are you sure you want to delete this HS Code?')) {
       try {
         await hsCodeService.delete(code);
+        setHsCodes(prev => prev.filter(c => c !== code));
         toast.success('HS Code deleted successfully');
-        fetchHSCodes();
       } catch (error) {
         toast.error('Failed to delete HS Code');
       }
@@ -55,18 +82,19 @@ export const HSCodeList: React.FC<HSCodeListProps> = ({ onClose }) => {
   };
 
   if (isLoading) {
-    return <div className="py-4 text-center">Loading...</div>;
+    return <LoadingSpinner size="sm" text="Loading HS Codes..." />;
   }
 
   return (
-    <div className="space-y-4">
-      <div className="flex gap-2">
+    <div className="space-y-6">
+      {/* Add HS Code Form */}
+      <div className="flex space-x-2">
         <input
           type="text"
           value={newHSCode}
           onChange={(e) => setNewHSCode(e.target.value)}
-          placeholder="Enter new HS Code"
-          className="flex-1 rounded-md border-gray-300 dark:border-gray-600 shadow-sm focus:border-blue-500 focus:ring-blue-500 bg-white dark:bg-gray-700 text-gray-900 dark:text-white"
+          placeholder="Enter HS Code (12 digits)"
+          className="flex-1 rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white placeholder-gray-400 dark:placeholder-gray-500"
         />
         <button
           onClick={handleAdd}
@@ -75,24 +103,38 @@ export const HSCodeList: React.FC<HSCodeListProps> = ({ onClose }) => {
           Add
         </button>
       </div>
+      <p className="text-sm text-gray-500 dark:text-gray-400">
+        Example: 1234567890123 or 1234.56.78.90.12
+      </p>
 
-      <div className="bg-white dark:bg-gray-800 shadow overflow-hidden sm:rounded-md max-h-96 overflow-y-auto">
-        <ul className="divide-y divide-gray-200 dark:divide-gray-700">
-          {hsCodes.map((code) => (
-            <li key={code} className="px-4 py-4 flex items-center justify-between">
-              <span className="text-sm font-medium text-gray-900 dark:text-white">{code}</span>
-              <button
-                onClick={() => handleDelete(code)}
-                className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300"
-              >
-                Delete
-              </button>
-            </li>
-          ))}
-        </ul>
+      {/* HS Codes List */}
+      <div className="space-y-2">
+        {hsCodes.map((code) => (
+          <div
+            key={code}
+            className="flex justify-between items-center p-3 bg-gray-50 dark:bg-gray-700 rounded-lg hover:bg-gray-100 dark:hover:bg-gray-600 transition-colors duration-150"
+          >
+            <span className="font-mono text-gray-900 dark:text-white">{code}</span>
+            <button
+              onClick={() => handleDelete(code)}
+              className="text-red-600 hover:text-red-900 dark:text-red-400 dark:hover:text-red-300"
+            >
+              <svg className="h-5 w-5" fill="none" viewBox="0 0 24 24" stroke="currentColor">
+                <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
+              </svg>
+            </button>
+          </div>
+        ))}
+
+        {hsCodes.length === 0 && (
+          <div className="text-center py-4 text-gray-500 dark:text-gray-400">
+            No HS Codes found. Add your first one!
+          </div>
+        )}
       </div>
 
-      <div className="flex justify-end mt-4">
+      {/* Close Button */}
+      <div className="flex justify-end">
         <button
           onClick={onClose}
           className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"

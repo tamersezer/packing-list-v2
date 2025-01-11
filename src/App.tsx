@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { BrowserRouter as Router, Routes, Route } from 'react-router-dom';
+import { BrowserRouter as Router, Routes, Route, Navigate } from 'react-router-dom';
 import { ProductList } from './components/products/ProductList';
 import { PackingListPage } from './components/packing/PackingListPage';
 import { PackingListForm } from './components/packing/PackingListForm';
@@ -19,12 +19,10 @@ export const App: React.FC = () => {
             onToggle={() => setIsSidebarOpen(!isSidebarOpen)} 
           />
 
-          {/* Main Content */}
           <div className={`
             transition-all duration-300 ease-in-out
             ${isSidebarOpen ? 'ml-64' : 'ml-0'}
           `}>
-            {/* Hamburger Menu */}
             <button
               onClick={() => setIsSidebarOpen(!isSidebarOpen)}
               className="fixed top-4 left-4 z-10 p-2 rounded-md bg-white dark:bg-gray-800 shadow-lg"
@@ -35,10 +33,11 @@ export const App: React.FC = () => {
             </button>
 
             <Routes>
-              <Route path="/" element={<ProductList />} />
+              <Route path="/" element={<Navigate to="/packing-list" replace />} />
               <Route path="/packing-list" element={<PackingListPage />} />
               <Route path="/packing-list/new" element={<PackingListForm />} />
               <Route path="/packing-list/:id" element={<PackingListForm />} />
+              <Route path="/products" element={<ProductList />} />
             </Routes>
           </div>
         </div>

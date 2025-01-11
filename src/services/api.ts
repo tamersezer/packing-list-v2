@@ -1,20 +1,25 @@
 import type { Product } from '../types/Product';
 import type { PackingList } from '../types/PackingList';
 
-const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3001';
+const API_URL = process.env.REACT_APP_API_URL || 'http://localhost:3007';
 
 export const productService = {
   async getAll(): Promise<Product[]> {
-    const response = await fetch(`${API_URL}/products`);
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch products');
+    try {
+      const response = await fetch(`${API_URL}/products`);
+      if (!response.ok) throw new Error('Failed to fetch products');
+      return await response.json();
+    } catch (error) {
+      console.error('Product service error:', error);
+      throw error;
     }
-    
-    return response.json();
   },
 
   async create(product: Product): Promise<Product> {
+    if (!product.variants.some(v => v.isDefault)) {
+      throw new Error('At least one variant must be set as default');
+    }
+
     const response = await fetch(`${API_URL}/products`, {
       method: 'POST',
       headers: {
@@ -41,6 +46,10 @@ export const productService = {
   },
 
   async update(id: string, product: Product): Promise<Product> {
+    if (!product.variants.some(v => v.isDefault)) {
+      throw new Error('At least one variant must be set as default');
+    }
+
     const response = await fetch(`${API_URL}/products/${id}`, {
       method: 'PUT',
       headers: {
@@ -66,7 +75,7 @@ export const hsCodeService = {
     }
     
     const data = await response.json();
-    return data.map((item: { code: string }) => item.code);
+    return data.map((item: { id: string; code: string }) => item.code);
   },
 
   async add(hsCode: string): Promise<void> {
@@ -107,13 +116,14 @@ export const hsCodeService = {
 
 export const packingListService = {
   async getAll(): Promise<PackingList[]> {
-    const response = await fetch(`${API_URL}/packingLists`);
-    
-    if (!response.ok) {
-      throw new Error('Failed to fetch packing lists');
+    try {
+      const response = await fetch(`${API_URL}/packingLists`);
+      if (!response.ok) throw new Error('Failed to fetch packing lists');
+      return await response.json();
+    } catch (error) {
+      console.error('Packing list service error:', error);
+      throw error;
     }
-    
-    return response.json();
   },
 
   async create(packingList: PackingList): Promise<PackingList> {

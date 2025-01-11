@@ -1,636 +1,1562 @@
 {
   "products": [
     {
-      "weights": {
-        "gross": 35,
-        "net": 34
-      },
-      "boxDimensions": {
-        "height": 2,
-        "width": 4,
-        "length": 3
-      },
-      "boxQuantity": 1,
-      "hsCode": "3303.00.10.00.00",
+      "id": "af8a",
       "name": "Parfüm",
-      "id": "af8a"
+      "hsCode": "3303.00.10.00.00",
+      "variants": [
+        {
+          "id": "v1",
+          "name": "Small Box",
+          "boxQuantity": 24,
+          "boxDimensions": {
+            "length": 30,
+            "width": 20,
+            "height": 15
+          },
+          "weights": {
+            "gross": 2.5,
+            "net": 2.2
+          },
+          "isDefault": true
+        },
+        {
+          "id": "v2",
+          "name": "Large Box",
+          "boxQuantity": 48,
+          "boxDimensions": {
+            "length": 40,
+            "width": 30,
+            "height": 20
+          },
+          "weights": {
+            "gross": 5,
+            "net": 4.4
+          },
+          "isDefault": false
+        }
+      ]
     },
     {
-      "weights": {
-        "gross": 10,
-        "net": 9
-      },
-      "boxDimensions": {
-        "height": 31,
-        "width": 30,
-        "length": 31
-      },
-      "boxQuantity": 432,
-      "hsCode": "3303.00.90.00.11",
+      "id": "bf9b",
+      "name": "Deodorant",
+      "hsCode": "3307.20.00.00.00",
+      "variants": [
+        {
+          "id": "v1",
+          "name": "Standard Box",
+          "boxQuantity": 36,
+          "boxDimensions": {
+            "length": 35,
+            "width": 25,
+            "height": 18
+          },
+          "weights": {
+            "gross": 3.6,
+            "net": 3.2
+          },
+          "isDefault": true
+        },
+        {
+          "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+          "name": "Airway Box",
+          "boxQuantity": 36,
+          "boxDimensions": {
+            "length": 37,
+            "width": 27,
+            "height": 19
+          },
+          "weights": {
+            "net": 3.2,
+            "gross": 3.8
+          },
+          "isDefault": false
+        }
+      ]
+    },
+    {
+      "id": "b68b",
       "name": "Kolonya",
-      "id": "b76d"
+      "hsCode": "3303.00.90.00.00",
+      "variants": [
+        {
+          "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+          "name": "Standart",
+          "boxQuantity": 48,
+          "weights": {
+            "gross": 9.6,
+            "net": 9.2
+          },
+          "boxDimensions": {
+            "length": 21,
+            "width": 26,
+            "height": 14
+          },
+          "isDefault": true
+        }
+      ]
     },
     {
-      "weights": {
-        "gross": 4.5,
-        "net": 4
-      },
-      "boxDimensions": {
-        "height": 12,
-        "width": 54,
-        "length": 34
-      },
-      "boxQuantity": 12,
-      "hsCode": "3307.49.00.00.00",
+      "id": "e37e",
+      "name": "kussaas",
+      "hsCode": "3636.36.36.36.36",
+      "variants": [
+        {
+          "id": "28648466-998d-484d-981f-4bbef41e851a",
+          "name": "Standart",
+          "boxQuantity": 24,
+          "weights": {
+            "gross": 24,
+            "net": 24
+          },
+          "boxDimensions": {
+            "length": 22,
+            "width": 25,
+            "height": 12
+          },
+          "isDefault": true
+        },
+        {
+          "id": "5d2c1a33-b35e-489e-8129-2583a5833abe",
+          "name": "kussada",
+          "boxQuantity": 56,
+          "weights": {
+            "gross": 24,
+            "net": 24
+          },
+          "boxDimensions": {
+            "length": 24,
+            "width": 24,
+            "height": 24
+          },
+          "isDefault": false
+        }
+      ]
+    },
+    {
+      "id": "005b",
       "name": "Reed Diffuser",
-      "id": "7e66"
-    },
-    {
-      "id": "6106",
-      "weights": {
-        "gross": 6.5,
-        "net": 6.3
-      },
-      "boxDimensions": {
-        "height": 3,
-        "width": 2,
-        "length": 3
-      },
-      "boxQuantity": 8,
-      "hsCode": "3303.00.10.00.00",
-      "name": "Denem"
-    },
-    {
-      "id": "0f10",
-      "weights": {
-        "gross": 0.5,
-        "net": 0.4
-      },
-      "boxDimensions": {
-        "height": 1.5,
-        "width": 0.5,
-        "length": 1.5
-      },
-      "boxQuantity": 1,
-      "hsCode": "3303.00.90.00.11",
-      "name": "Deneme"
-    },
-    {
-      "id": "8cb0",
-      "weights": {
-        "gross": 100,
-        "net": 99
-      },
-      "boxDimensions": {
-        "height": 33,
-        "width": 32,
-        "length": 31
-      },
-      "boxQuantity": 65,
-      "hsCode": "3303.00.10.00.00",
-      "name": "Sıralama Denemesi"
-    },
-    {
-      "id": "98f9",
-      "weights": {
-        "gross": 9.6,
-        "net": 9.2
-      },
-      "boxDimensions": {
-        "height": 14,
-        "width": 31,
-        "length": 24
-      },
-      "boxQuantity": 48,
-      "hsCode": "3303.00.10.00.00",
-      "name": "Sansiro Perfume"
-    }
-  ],
-  "hsCodes": [
-    {
-      "id": "4",
-      "code": "3303.00.10.00.00"
-    },
-    {
-      "id": "120c",
-      "code": "3303.00.90.00.11"
-    },
-    {
-      "id": "626f",
-      "code": "3307.49.00.00.00"
+      "hsCode": "3307.49.00.00.00",
+      "variants": [
+        {
+          "id": "6c54286e-97f2-423e-a18d-d63fe5ba1adf",
+          "name": "Silindir Şişe",
+          "boxQuantity": 12,
+          "weights": {
+            "gross": 3,
+            "net": 2.8
+          },
+          "boxDimensions": {
+            "length": 15,
+            "width": 17,
+            "height": 30
+          },
+          "isDefault": true
+        }
+      ]
     }
   ],
   "packingLists": [
     {
-      "name": "Deneme 1",
-      "createdAt": "2025-01-05T20:39:43.497Z",
-      "updatedAt": "2025-01-05T20:44:43.088Z",
-      "status": "draft",
+      "id": "5e5b",
+      "name": "Yunanistan",
+      "createdAt": "2025-01-11T18:19:28.913Z",
+      "updatedAt": "2025-01-11T20:33:11.855Z",
+      "status": "completed",
       "items": [
         {
-          "id": "8c4409d6-4877-48c3-8be4-edd724550847",
+          "id": "9b2ba773-fe6d-4a57-8e3e-ce1e10a8dabd",
           "packageNo": "1",
           "items": [
             {
               "product": {
-                "weights": {
-                  "gross": 4.5,
-                  "net": 4
-                },
-                "boxDimensions": {
-                  "height": 12,
-                  "width": 54,
-                  "length": 34
-                },
-                "boxQuantity": 12,
-                "hsCode": "3307.49.00.00.00",
-                "name": "Reed Diffuser",
-                "id": "7e66"
-              },
-              "quantity": 12
-            },
-            {
-              "product": {
-                "weights": {
-                  "gross": 10,
-                  "net": 9
-                },
-                "boxDimensions": {
-                  "height": 31,
-                  "width": 30,
-                  "length": 31
-                },
-                "boxQuantity": 432,
-                "hsCode": "3303.00.90.00.11",
-                "name": "Kolonya",
-                "id": "b76d"
-              },
-              "quantity": 432
-            },
-            {
-              "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
+                "id": "af8a",
                 "name": "Parfüm",
-                "id": "af8a"
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
               },
-              "quantity": 1
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 2400
             }
           ],
-          "grossWeight": 4433,
-          "netWeight": 3970,
+          "grossWeight": 298,
+          "netWeight": 220,
           "dimensions": {
             "length": 80,
             "width": 120,
-            "height": 120
+            "height": 145
           }
         },
         {
-          "id": "c6fe6cd7-a3e6-474d-affa-16faffc5304c",
+          "id": "7f266900-0d29-4861-a9d5-edef91aaf2d5",
           "packageNo": "2",
           "items": [
             {
               "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Parfüm",
-                "id": "af8a"
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.8,
+                      "gross": 3.2
+                    },
+                    "isDefault": false
+                  }
+                ]
               },
-              "quantity": 1
-            },
-            {
-              "product": {
-                "id": "6106",
-                "weights": {
-                  "gross": 6.5,
-                  "net": 6.3
-                },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
                 "boxDimensions": {
-                  "height": 3,
-                  "width": 2,
-                  "length": 3
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
                 },
-                "boxQuantity": 8,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Denem"
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
               },
-              "quantity": 8
+              "quantity": 1800
             }
           ],
-          "grossWeight": 111,
-          "netWeight": 84.4,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 150
-          },
-          "hsCode": "3303.00.10.00.00"
-        },
-        {
-          "id": "b7dd0d27-562b-48d9-8919-f209dfaa59b9",
-          "packageNo": "3 to 120",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Parfüm",
-                "id": "af8a"
-              },
-              "quantity": 120
-            }
-          ],
-          "grossWeight": 4200,
-          "netWeight": 4080,
-          "dimensions": {
-            "length": 3,
-            "width": 4,
-            "height": 2
-          },
-          "hsCode": "3303.00.10.00.00"
-        }
-      ],
-      "totalGrossWeight": 8744,
-      "totalNetWeight": 8134.4,
-      "totalNumberOfBoxes": 574,
-      "id": "0c7a"
-    },
-    {
-      "id": "747d",
-      "name": "Deneme 2",
-      "createdAt": "2025-01-05T20:45:11.355Z",
-      "updatedAt": "2025-01-05T21:48:53.445Z",
-      "status": "draft",
-      "items": [
-        {
-          "id": "381e57ea-987c-44cf-9fcb-f75be1d6fc2d",
-          "packageNo": "1",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Parfüm",
-                "id": "af8a"
-              },
-              "quantity": 1
-            }
-          ],
-          "grossWeight": 59,
-          "netWeight": 34,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 120
-          },
-          "hsCode": "3303.00.10.00.00"
-        },
-        {
-          "id": "132bc0ca-780c-41db-982f-ce298bea44fb",
-          "packageNo": "2",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 10,
-                  "net": 9
-                },
-                "boxDimensions": {
-                  "height": 31,
-                  "width": 30,
-                  "length": 31
-                },
-                "boxQuantity": 432,
-                "hsCode": "3303.00.90.00.11",
-                "name": "Kolonya",
-                "id": "b76d"
-              },
-              "quantity": 432
-            },
-            {
-              "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Parfüm",
-                "id": "af8a"
-              },
-              "quantity": 1
-            }
-          ],
-          "grossWeight": 4379,
-          "netWeight": 3922,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 200
-          }
-        },
-        {
-          "id": "c42f6e45-d612-4745-a10c-85923ff08df2",
-          "packageNo": "3",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 10,
-                  "net": 9
-                },
-                "boxDimensions": {
-                  "height": 31,
-                  "width": 30,
-                  "length": 31
-                },
-                "boxQuantity": 432,
-                "hsCode": "3303.00.90.00.11",
-                "name": "Kolonya",
-                "id": "b76d"
-              },
-              "quantity": 432
-            }
-          ],
-          "grossWeight": 120,
-          "netWeight": 80,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 112
-          },
-          "hsCode": "3303.00.90.00.11"
-        }
-      ],
-      "totalGrossWeight": 4558,
-      "totalNetWeight": 4036,
-      "totalNumberOfBoxes": 866
-    },
-    {
-      "id": "3fe7",
-      "name": "Demnnemğ",
-      "createdAt": "2025-01-05T20:55:51.255Z",
-      "updatedAt": "2025-01-05T20:56:23.651Z",
-      "status": "draft",
-      "items": [
-        {
-          "id": "4ab2a27c-823a-4ece-8fbf-6bf757bb907a",
-          "packageNo": "1",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Parfüm",
-                "id": "af8a"
-              },
-              "quantity": 1
-            },
-            {
-              "product": {
-                "weights": {
-                  "gross": 4.5,
-                  "net": 4
-                },
-                "boxDimensions": {
-                  "height": 12,
-                  "width": 54,
-                  "length": 34
-                },
-                "boxQuantity": 12,
-                "hsCode": "3307.49.00.00.00",
-                "name": "Reed Diffuser",
-                "id": "7e66"
-              },
-              "quantity": 12
-            },
-            {
-              "product": {
-                "id": "6106",
-                "weights": {
-                  "gross": 6.5,
-                  "net": 6.3
-                },
-                "boxDimensions": {
-                  "height": 3,
-                  "width": 2,
-                  "length": 3
-                },
-                "boxQuantity": 8,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Denem"
-              },
-              "quantity": 8
-            }
-          ],
-          "grossWeight": 165,
-          "netWeight": 132.4,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 120
-          }
-        }
-      ],
-      "totalGrossWeight": 165,
-      "totalNetWeight": 132.4,
-      "totalNumberOfBoxes": 21
-    },
-    {
-      "name": "Son Deneme",
-      "createdAt": "2025-01-05T21:19:01.092Z",
-      "updatedAt": "2025-01-05T21:28:48.348Z",
-      "status": "draft",
-      "items": [
-        {
-          "id": "d6924576-04d6-4217-b03b-cd6aec1d5210",
-          "packageNo": "1",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 35,
-                  "net": 34
-                },
-                "boxDimensions": {
-                  "height": 2,
-                  "width": 4,
-                  "length": 3
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Parfüm",
-                "id": "af8a"
-              },
-              "quantity": 1
-            },
-            {
-              "product": {
-                "weights": {
-                  "gross": 4.5,
-                  "net": 4
-                },
-                "boxDimensions": {
-                  "height": 12,
-                  "width": 54,
-                  "length": 34
-                },
-                "boxQuantity": 12,
-                "hsCode": "3307.49.00.00.00",
-                "name": "Reed Diffuser",
-                "id": "7e66"
-              },
-              "quantity": 12
-            },
-            {
-              "product": {
-                "id": "0f10",
-                "weights": {
-                  "gross": 0.5,
-                  "net": 0.4
-                },
-                "boxDimensions": {
-                  "height": 1.5,
-                  "width": 0.5,
-                  "length": 1.5
-                },
-                "boxQuantity": 1,
-                "hsCode": "3303.00.90.00.11",
-                "name": "Deneme"
-              },
-              "quantity": 4
-            },
-            {
-              "product": {
-                "id": "8cb0",
-                "weights": {
-                  "gross": 100,
-                  "net": 99
-                },
-                "boxDimensions": {
-                  "height": 33,
-                  "width": 32,
-                  "length": 31
-                },
-                "boxQuantity": 65,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Sıralama Denemesi"
-              },
-              "quantity": 65
-            }
-          ],
-          "grossWeight": 6615,
-          "netWeight": 6518.6,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 116
-          }
-        },
-        {
-          "id": "5896ed28-9299-42db-a88a-0c008b2730df",
-          "packageNo": "2",
-          "items": [
-            {
-              "product": {
-                "weights": {
-                  "gross": 10,
-                  "net": 9
-                },
-                "boxDimensions": {
-                  "height": 31,
-                  "width": 30,
-                  "length": 31
-                },
-                "boxQuantity": 432,
-                "hsCode": "3303.00.90.00.11",
-                "name": "Kolonya",
-                "id": "b76d"
-              },
-              "quantity": 432
-            },
-            {
-              "product": {
-                "id": "6106",
-                "weights": {
-                  "gross": 6.5,
-                  "net": 6.3
-                },
-                "boxDimensions": {
-                  "height": 3,
-                  "width": 2,
-                  "length": 3
-                },
-                "boxQuantity": 8,
-                "hsCode": "3303.00.10.00.00",
-                "name": "Denem"
-              },
-              "quantity": 64
-            }
-          ],
-          "grossWeight": 4760,
-          "netWeight": 4291.2,
+          "grossWeight": 228,
+          "netWeight": 160,
           "dimensions": {
             "length": 80,
             "width": 120,
             "height": 165
           }
+        },
+        {
+          "id": "6f04c950-d4b0-4443-85d3-647012dbe2a0",
+          "packageNo": "3",
+          "items": [],
+          "grossWeight": 24,
+          "netWeight": 0,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 0
+          }
+        },
+        {
+          "id": "fc73838f-75e1-45e9-a663-9d26314455a3",
+          "packageNo": "4",
+          "items": [],
+          "grossWeight": 24,
+          "netWeight": 0,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 0
+          }
+        },
+        {
+          "id": "723f3fff-5321-46ac-a71f-e46d834e6392",
+          "packageNo": "5",
+          "items": [],
+          "grossWeight": 24,
+          "netWeight": 0,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 0
+          }
+        },
+        {
+          "id": "e3145f50-e110-469b-bdac-3abde9108699",
+          "packageNo": "6",
+          "items": [],
+          "grossWeight": 24,
+          "netWeight": 0,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 0
+          }
         }
       ],
-      "totalGrossWeight": 11375,
-      "totalNetWeight": 10809.8,
-      "totalNumberOfBoxes": 578,
-      "id": "2915"
+      "totalGrossWeight": 622,
+      "totalNetWeight": 380,
+      "totalNumberOfBoxes": 150,
+      "totalVolume": 2.976
+    },
+    {
+      "id": "4733",
+      "name": "",
+      "createdAt": "2025-01-11T19:10:12.980Z",
+      "updatedAt": "2025-01-11T20:10:40.211Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "b03417e4-3453-486b-a1ff-48744afd8230",
+          "packageNo": "1",
+          "packageRange": {
+            "start": 1,
+            "end": 1
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v2",
+                "name": "Large Box",
+                "boxQuantity": 48,
+                "boxDimensions": {
+                  "length": 40,
+                  "width": 30,
+                  "height": 20
+                },
+                "weights": {
+                  "gross": 5,
+                  "net": 4.4
+                },
+                "isDefault": false
+              },
+              "quantity": 48
+            }
+          ],
+          "grossWeight": 5,
+          "netWeight": 4.4,
+          "dimensions": {
+            "length": 40,
+            "width": 30,
+            "height": 20
+          }
+        },
+        {
+          "id": "92a1acb1-aeae-4266-85de-6f8300496a05",
+          "packageNo": "2 to 6",
+          "packageRange": {
+            "start": 2,
+            "end": 6
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 120
+            }
+          ],
+          "grossWeight": 12.5,
+          "netWeight": 11,
+          "dimensions": {
+            "length": 30,
+            "width": 20,
+            "height": 15
+          }
+        }
+      ],
+      "totalGrossWeight": 17.5,
+      "totalNetWeight": 15.4,
+      "totalNumberOfBoxes": 6,
+      "totalVolume": 0.069
+    },
+    {
+      "id": "8d5d",
+      "name": "",
+      "createdAt": "2025-01-11T20:09:30.462Z",
+      "updatedAt": "2025-01-11T20:10:02.228Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "ccb59c40-95c4-4d37-8200-6b3278839b1b",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.8,
+                      "gross": 3.2
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
+                },
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
+              },
+              "quantity": 3600
+            }
+          ],
+          "grossWeight": 408,
+          "netWeight": 320,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        },
+        {
+          "id": "51010f33-44d4-40de-b00d-be08b86afe24",
+          "packageNo": "2",
+          "items": [
+            {
+              "product": {
+                "id": "b68b",
+                "name": "Kolonya",
+                "hsCode": "3303.00.90.00.00",
+                "variants": [
+                  {
+                    "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                    "name": "Standart",
+                    "boxQuantity": 48,
+                    "weights": {
+                      "gross": 9.6,
+                      "net": 9.2
+                    },
+                    "boxDimensions": {
+                      "length": 21,
+                      "width": 26,
+                      "height": 14
+                    },
+                    "isDefault": true
+                  }
+                ]
+              },
+              "variant": {
+                "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                "name": "Standart",
+                "boxQuantity": 48,
+                "weights": {
+                  "gross": 9.6,
+                  "net": 9.2
+                },
+                "boxDimensions": {
+                  "length": 21,
+                  "width": 26,
+                  "height": 14
+                },
+                "isDefault": true
+              },
+              "quantity": 4800
+            }
+          ],
+          "grossWeight": 1008,
+          "netWeight": 920,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 156
+          }
+        }
+      ],
+      "totalGrossWeight": 1416,
+      "totalNetWeight": 1240,
+      "totalNumberOfBoxes": 200,
+      "totalVolume": 2.6496
+    },
+    {
+      "id": "5fd0",
+      "name": "",
+      "createdAt": "2025-01-11T20:22:50.530Z",
+      "updatedAt": "2025-01-11T20:34:36.799Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "d291282e-f59f-4c68-bdce-095d43acf91c",
+          "packageNo": "5 to 10",
+          "packageRange": {
+            "start": 5,
+            "end": 10
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 144
+            }
+          ],
+          "grossWeight": 15,
+          "netWeight": 13.2,
+          "dimensions": {
+            "length": 30,
+            "width": 20,
+            "height": 15
+          }
+        },
+        {
+          "id": "958fb4dd-0808-4476-aa2c-603ed513667a",
+          "packageNo": "11",
+          "items": [
+            {
+              "product": {
+                "id": "b68b",
+                "name": "Kolonya",
+                "hsCode": "3303.00.90.00.00",
+                "variants": [
+                  {
+                    "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                    "name": "Standart",
+                    "boxQuantity": 48,
+                    "weights": {
+                      "gross": 9.6,
+                      "net": 9.2
+                    },
+                    "boxDimensions": {
+                      "length": 21,
+                      "width": 26,
+                      "height": 14
+                    },
+                    "isDefault": true
+                  }
+                ]
+              },
+              "variant": {
+                "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                "name": "Standart",
+                "boxQuantity": 48,
+                "weights": {
+                  "gross": 9.6,
+                  "net": 9.2
+                },
+                "boxDimensions": {
+                  "length": 21,
+                  "width": 26,
+                  "height": 14
+                },
+                "isDefault": true
+              },
+              "quantity": 4800
+            }
+          ],
+          "grossWeight": 1008,
+          "netWeight": 920,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        },
+        {
+          "id": "9c0448fa-5bf5-48c7-ba92-a0d4e64617cc",
+          "packageNo": "1 to 4",
+          "packageRange": {
+            "start": 1,
+            "end": 4
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 96
+            }
+          ],
+          "grossWeight": 10,
+          "netWeight": 8.8,
+          "dimensions": {
+            "length": 30,
+            "width": 20,
+            "height": 15
+          }
+        }
+      ],
+      "totalGrossWeight": 1033,
+      "totalNetWeight": 942,
+      "totalNumberOfBoxes": 11,
+      "totalVolume": 1.242
+    },
+    {
+      "id": "4301",
+      "name": "",
+      "createdAt": "2025-01-11T20:29:22.115Z",
+      "updatedAt": "2025-01-11T20:29:49.916Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "bf2f87ae-956c-4518-91c6-4d4611b7e9c2",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "005b",
+                "name": "Reed Diffuser",
+                "hsCode": "3307.49.00.00.00",
+                "variants": [
+                  {
+                    "id": "6c54286e-97f2-423e-a18d-d63fe5ba1adf",
+                    "name": "Silindir Şişe",
+                    "boxQuantity": 12,
+                    "weights": {
+                      "gross": 3,
+                      "net": 2.8
+                    },
+                    "boxDimensions": {
+                      "length": 15,
+                      "width": 17,
+                      "height": 30
+                    },
+                    "isDefault": true
+                  }
+                ]
+              },
+              "variant": {
+                "id": "6c54286e-97f2-423e-a18d-d63fe5ba1adf",
+                "name": "Silindir Şişe",
+                "boxQuantity": 12,
+                "weights": {
+                  "gross": 3,
+                  "net": 2.8
+                },
+                "boxDimensions": {
+                  "length": 15,
+                  "width": 17,
+                  "height": 30
+                },
+                "isDefault": true
+              },
+              "quantity": 1200
+            }
+          ],
+          "grossWeight": 348,
+          "netWeight": 280,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        }
+      ],
+      "totalGrossWeight": 348,
+      "totalNetWeight": 280,
+      "totalNumberOfBoxes": 100,
+      "totalVolume": 1.152
+    },
+    {
+      "id": "9890",
+      "name": "",
+      "createdAt": "2025-01-11T20:34:43.221Z",
+      "updatedAt": "2025-01-11T20:37:51.248Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "b464640c-ba2b-418d-bd36-042030603df1",
+          "packageNo": "1 to 5",
+          "packageRange": {
+            "start": 1,
+            "end": 5
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v2",
+                "name": "Large Box",
+                "boxQuantity": 48,
+                "boxDimensions": {
+                  "length": 40,
+                  "width": 30,
+                  "height": 20
+                },
+                "weights": {
+                  "gross": 5,
+                  "net": 4.4
+                },
+                "isDefault": false
+              },
+              "quantity": 240
+            }
+          ],
+          "grossWeight": 25,
+          "netWeight": 22,
+          "dimensions": {
+            "length": 40,
+            "width": 30,
+            "height": 20
+          }
+        },
+        {
+          "id": "9760d0b1-b69e-44b8-9f33-0bb163345f7e",
+          "packageNo": "6 to 17",
+          "packageRange": {
+            "start": 6,
+            "end": 17
+          },
+          "items": [
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                "name": "Airway Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 37,
+                  "width": 27,
+                  "height": 19
+                },
+                "weights": {
+                  "net": 3.2,
+                  "gross": 3.8
+                },
+                "isDefault": false
+              },
+              "quantity": 432
+            }
+          ],
+          "grossWeight": 45.6,
+          "netWeight": 38.4,
+          "dimensions": {
+            "length": 37,
+            "width": 27,
+            "height": 19
+          }
+        }
+      ],
+      "totalGrossWeight": 70.6,
+      "totalNetWeight": 60.4,
+      "totalNumberOfBoxes": 17,
+      "totalVolume": 0.347772
+    },
+    {
+      "id": "3633",
+      "name": "",
+      "createdAt": "2025-01-11T20:37:56.438Z",
+      "updatedAt": "2025-01-11T20:42:23.113Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "28009b64-6738-48f9-b8ce-eb0c08c84339",
+          "packageNo": "1 to 7",
+          "packageRange": {
+            "start": 1,
+            "end": 7
+          },
+          "items": [
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
+                },
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
+              },
+              "quantity": 252
+            }
+          ],
+          "grossWeight": 25.2,
+          "netWeight": 22.4,
+          "dimensions": {
+            "length": 35,
+            "width": 25,
+            "height": 18
+          }
+        },
+        {
+          "id": "2cea23e9-674a-4813-914e-7ce34b108a0e",
+          "packageNo": "12",
+          "packageRange": {
+            "start": 12,
+            "end": 12
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 24
+            }
+          ],
+          "grossWeight": 2.5,
+          "netWeight": 2.2,
+          "dimensions": {
+            "length": 30,
+            "width": 20,
+            "height": 15
+          }
+        },
+        {
+          "id": "23ef162f-c6f1-4988-a0dd-5b87a6509083",
+          "packageNo": "13",
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 240
+            }
+          ],
+          "grossWeight": 73,
+          "netWeight": 22,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        }
+      ],
+      "totalGrossWeight": 100.7,
+      "totalNetWeight": 46.599999999999994,
+      "totalNumberOfBoxes": 60,
+      "totalVolume": 1.27125
+    },
+    {
+      "id": "fa67",
+      "name": "",
+      "createdAt": "2025-01-11T20:43:37.249Z",
+      "updatedAt": "2025-01-11T20:52:37.065Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "f808bb8b-1585-4853-bedf-55735be7fc83",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 2400
+            }
+          ],
+          "grossWeight": 298,
+          "netWeight": 220,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 125
+          }
+        },
+        {
+          "id": "76053956-a67a-4b08-aa1c-e991e4f875c3",
+          "packageNo": "2",
+          "packageRange": {
+            "start": 2,
+            "end": 2
+          },
+          "items": [
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
+                },
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
+              },
+              "quantity": 36
+            }
+          ],
+          "grossWeight": 3.6,
+          "netWeight": 3.2,
+          "dimensions": {
+            "length": 35,
+            "width": 25,
+            "height": 18
+          }
+        },
+        {
+          "id": "e35ec6e0-47f2-430d-a13e-3c446ab68fcf",
+          "packageNo": "3 to 12",
+          "packageRange": {
+            "start": 3,
+            "end": 12
+          },
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 240
+            }
+          ],
+          "grossWeight": 25,
+          "netWeight": 22,
+          "dimensions": {
+            "length": 30,
+            "width": 20,
+            "height": 15
+          }
+        }
+      ],
+      "totalGrossWeight": 326.6,
+      "totalNetWeight": 245.2,
+      "totalNumberOfBoxes": 111,
+      "totalVolume": 1.30575
+    }
+  ],
+  "hsCodes": [
+    {
+      "id": "1",
+      "code": "3303.00.10.00.00"
+    },
+    {
+      "id": "2",
+      "code": "3307.20.00.00.00"
+    },
+    {
+      "id": "3",
+      "code": "3304.99.00.00.19"
+    },
+    {
+      "id": "44cc",
+      "code": "3303.00.10.00.00"
+    },
+    {
+      "id": "0dbe",
+      "code": "3303.00.90.00.00"
+    },
+    {
+      "id": "8331",
+      "code": "3307.49.00.00.00"
+    },
+    {
+      "id": "256c",
+      "code": "3636.36.36.36.36"
     }
   ]
 }
