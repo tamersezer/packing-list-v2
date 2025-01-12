@@ -16,6 +16,13 @@ export const ProductList: React.FC = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isHSCodeModalVisible, setIsHSCodeModalVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
+<<<<<<< HEAD
+=======
+
+  const filteredProducts = products.filter(product => 
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+>>>>>>> main
 
   const fetchProducts = async () => {
     try {
@@ -110,9 +117,17 @@ export const ProductList: React.FC = () => {
 
   return (
     <div className="max-w-7xl mx-auto p-6">
-      <div className="flex justify-between items-center mb-6">
-        <h2 className="text-2xl font-bold text-gray-800 dark:text-white">Products</h2>
-        <div className="space-x-4">
+      <div className="flex flex-col sm:flex-row justify-between items-center gap-4 mb-6">
+        <div className="w-full sm:w-96">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          />
+        </div>
+        <div className="flex space-x-4">
           <button
             onClick={() => setIsHSCodeModalVisible(true)}
             className="px-4 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700"
