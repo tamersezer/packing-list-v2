@@ -16,13 +16,17 @@ export const ProductList: React.FC = () => {
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isHSCodeModalVisible, setIsHSCodeModalVisible] = useState(false);
   const [searchTerm, setSearchTerm] = useState('');
-<<<<<<< HEAD
-=======
+  const [boxFilter, setBoxFilter] = useState('');
 
-  const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
->>>>>>> main
+  const filteredProducts = products.filter(product => {
+    const nameMatch = product.name.toLowerCase().includes(searchTerm.toLowerCase());
+    const boxMatch = boxFilter 
+      ? product.variants.some(variant => 
+          variant.name.toLowerCase().includes(boxFilter.toLowerCase())
+        )
+      : true;
+    return nameMatch && boxMatch;
+  });
 
   const fetchProducts = async () => {
     try {
@@ -107,10 +111,6 @@ export const ProductList: React.FC = () => {
     </Menu>
   );
 
-  const filteredProducts = products.filter(product => 
-    product.name.toLowerCase().includes(searchTerm.toLowerCase())
-  );
-
   if (isLoading) {
     return <LoadingSpinner text="Loading products..." />;
   }
@@ -127,6 +127,15 @@ export const ProductList: React.FC = () => {
             className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
           />
         </div>
+        <div className="w-full sm:w-96">
+          <input
+            type="text"
+            placeholder="Filter by box name..."
+            value={boxFilter}
+            onChange={(e) => setBoxFilter(e.target.value)}
+            className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+          />
+        </div>
         <div className="flex space-x-4">
           <button
             onClick={() => setIsHSCodeModalVisible(true)}
@@ -140,18 +149,6 @@ export const ProductList: React.FC = () => {
           >
             Add Product
           </button>
-        </div>
-      </div>
-
-      <div className="mb-6">
-        <div className="max-w-xl">
-          <input
-            type="text"
-            placeholder="Search products..."
-            value={searchTerm}
-            onChange={(e) => setSearchTerm(e.target.value)}
-            className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
-          />
         </div>
       </div>
 
@@ -229,8 +226,8 @@ export const ProductList: React.FC = () => {
       {filteredProducts.length === 0 && (
         <div className="text-center py-12">
           <p className="text-gray-500 dark:text-gray-400">
-            {searchTerm 
-              ? 'No products match your search'
+            {searchTerm || boxFilter
+              ? 'No products match your filters'
               : 'No products found. Create your first product!'}
           </p>
         </div>
