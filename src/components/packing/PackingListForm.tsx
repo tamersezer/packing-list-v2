@@ -16,6 +16,7 @@ export const PackingListForm: React.FC = () => {
 
   const [isLoading, setIsLoading] = useState(true);
   const [packingList, setPackingList] = useState<PackingList>({
+    id: crypto.randomUUID(),
     name: '',
     createdAt: new Date().toISOString(),
     updatedAt: new Date().toISOString(),

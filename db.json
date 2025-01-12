@@ -356,9 +356,9 @@
     },
     {
       "id": "4733",
-      "name": "",
+      "name": "Kongo",
       "createdAt": "2025-01-11T19:10:12.980Z",
-      "updatedAt": "2025-01-11T20:10:40.211Z",
+      "updatedAt": "2025-01-12T10:26:36.370Z",
       "status": "draft",
       "items": [
         {
@@ -513,9 +513,9 @@
     },
     {
       "id": "8d5d",
-      "name": "",
+      "name": "Romanya",
       "createdAt": "2025-01-11T20:09:30.462Z",
-      "updatedAt": "2025-01-11T20:10:02.228Z",
+      "updatedAt": "2025-01-12T10:26:53.049Z",
       "status": "draft",
       "items": [
         {
@@ -647,9 +647,9 @@
     },
     {
       "id": "5fd0",
-      "name": "",
+      "name": "Ekvator Ginesi",
       "createdAt": "2025-01-11T20:22:50.530Z",
-      "updatedAt": "2025-01-11T20:34:36.799Z",
+      "updatedAt": "2025-01-12T10:27:05.834Z",
       "status": "draft",
       "items": [
         {
@@ -852,14 +852,14 @@
       ],
       "totalGrossWeight": 1033,
       "totalNetWeight": 942,
-      "totalNumberOfBoxes": 11,
+      "totalNumberOfBoxes": 110,
       "totalVolume": 1.242
     },
     {
       "id": "4301",
-      "name": "",
+      "name": "Özbekistan",
       "createdAt": "2025-01-11T20:29:22.115Z",
-      "updatedAt": "2025-01-11T20:29:49.916Z",
+      "updatedAt": "2025-01-12T10:27:18.456Z",
       "status": "draft",
       "items": [
         {
@@ -923,9 +923,9 @@
     },
     {
       "id": "9890",
-      "name": "",
+      "name": "Madagaskar",
       "createdAt": "2025-01-11T20:34:43.221Z",
-      "updatedAt": "2025-01-11T20:37:51.248Z",
+      "updatedAt": "2025-01-12T10:27:38.135Z",
       "status": "draft",
       "items": [
         {
@@ -1080,9 +1080,9 @@
     },
     {
       "id": "3633",
-      "name": "",
+      "name": "Bulgaristan",
       "createdAt": "2025-01-11T20:37:56.438Z",
-      "updatedAt": "2025-01-11T20:42:23.113Z",
+      "updatedAt": "2025-01-12T11:06:57.904Z",
       "status": "draft",
       "items": [
         {
@@ -1300,14 +1300,14 @@
       ],
       "totalGrossWeight": 100.7,
       "totalNetWeight": 46.599999999999994,
-      "totalNumberOfBoxes": 60,
+      "totalNumberOfBoxes": 18,
       "totalVolume": 1.27125
     },
     {
       "id": "fa67",
-      "name": "",
+      "name": "Bahreyn",
       "createdAt": "2025-01-11T20:43:37.249Z",
-      "updatedAt": "2025-01-11T20:52:37.065Z",
+      "updatedAt": "2025-01-12T11:06:39.714Z",
       "status": "draft",
       "items": [
         {
@@ -1527,6 +1527,466 @@
       "totalNetWeight": 245.2,
       "totalNumberOfBoxes": 111,
       "totalVolume": 1.30575
+    },
+    {
+      "id": "8cb6bcae-8f36-482d-a2e4-9bc8667c9267",
+      "name": "Irak",
+      "createdAt": "2025-01-12T10:40:08.250Z",
+      "updatedAt": "2025-01-12T11:06:30.848Z",
+      "status": "completed",
+      "items": [
+        {
+          "id": "f076f9f6-dad2-43ba-a545-5ef41b92c1bd",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v2",
+                "name": "Large Box",
+                "boxQuantity": 48,
+                "boxDimensions": {
+                  "length": 40,
+                  "width": 30,
+                  "height": 20
+                },
+                "weights": {
+                  "gross": 5,
+                  "net": 4.4
+                },
+                "isDefault": false
+              },
+              "quantity": 480
+            },
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
+                },
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
+              },
+              "quantity": 360
+            },
+            {
+              "product": {
+                "id": "b68b",
+                "name": "Kolonya",
+                "hsCode": "3303.00.90.00.00",
+                "variants": [
+                  {
+                    "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                    "name": "Standart",
+                    "boxQuantity": 48,
+                    "weights": {
+                      "gross": 9.6,
+                      "net": 9.2
+                    },
+                    "boxDimensions": {
+                      "length": 21,
+                      "width": 26,
+                      "height": 14
+                    },
+                    "isDefault": true
+                  }
+                ]
+              },
+              "variant": {
+                "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                "name": "Standart",
+                "boxQuantity": 48,
+                "weights": {
+                  "gross": 9.6,
+                  "net": 9.2
+                },
+                "boxDimensions": {
+                  "length": 21,
+                  "width": 26,
+                  "height": 14
+                },
+                "isDefault": true
+              },
+              "quantity": 500
+            },
+            {
+              "product": {
+                "id": "005b",
+                "name": "Reed Diffuser",
+                "hsCode": "3307.49.00.00.00",
+                "variants": [
+                  {
+                    "id": "6c54286e-97f2-423e-a18d-d63fe5ba1adf",
+                    "name": "Silindir Şişe",
+                    "boxQuantity": 12,
+                    "weights": {
+                      "gross": 3,
+                      "net": 2.8
+                    },
+                    "boxDimensions": {
+                      "length": 15,
+                      "width": 17,
+                      "height": 30
+                    },
+                    "isDefault": true
+                  }
+                ]
+              },
+              "variant": {
+                "id": "6c54286e-97f2-423e-a18d-d63fe5ba1adf",
+                "name": "Silindir Şişe",
+                "boxQuantity": 12,
+                "weights": {
+                  "gross": 3,
+                  "net": 2.8
+                },
+                "boxDimensions": {
+                  "length": 15,
+                  "width": 17,
+                  "height": 30
+                },
+                "isDefault": true
+              },
+              "quantity": 240
+            }
+          ],
+          "grossWeight": 294,
+          "netWeight": 227.8,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 156
+          }
+        },
+        {
+          "id": "7484f6a7-97b7-427e-ab1c-bc70fa4915f6",
+          "packageNo": "2",
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v2",
+                "name": "Large Box",
+                "boxQuantity": 48,
+                "boxDimensions": {
+                  "length": 40,
+                  "width": 30,
+                  "height": 20
+                },
+                "weights": {
+                  "gross": 5,
+                  "net": 4.4
+                },
+                "isDefault": false
+              },
+              "quantity": 480
+            },
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                "name": "Airway Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 37,
+                  "width": 27,
+                  "height": 19
+                },
+                "weights": {
+                  "net": 3.2,
+                  "gross": 3.8
+                },
+                "isDefault": false
+              },
+              "quantity": 360
+            },
+            {
+              "product": {
+                "id": "b68b",
+                "name": "Kolonya",
+                "hsCode": "3303.00.90.00.00",
+                "variants": [
+                  {
+                    "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                    "name": "Standart",
+                    "boxQuantity": 48,
+                    "weights": {
+                      "gross": 9.6,
+                      "net": 9.2
+                    },
+                    "boxDimensions": {
+                      "length": 21,
+                      "width": 26,
+                      "height": 14
+                    },
+                    "isDefault": true
+                  }
+                ]
+              },
+              "variant": {
+                "id": "c9aecaed-d715-4eb0-904e-806b3a36a197",
+                "name": "Standart",
+                "boxQuantity": 48,
+                "weights": {
+                  "gross": 9.6,
+                  "net": 9.2
+                },
+                "boxDimensions": {
+                  "length": 21,
+                  "width": 26,
+                  "height": 14
+                },
+                "isDefault": true
+              },
+              "quantity": 480
+            }
+          ],
+          "grossWeight": 232,
+          "netWeight": 168,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 145
+          }
+        }
+      ],
+      "totalGrossWeight": 526,
+      "totalNetWeight": 395.8,
+      "totalNumberOfBoxes": 81,
+      "totalVolume": 2.8895999999999997
+    },
+    {
+      "id": "2645cfd3-40db-4de3-a46f-90d6c2df03a3",
+      "name": "Support",
+      "createdAt": "2025-01-12T11:27:48.845Z",
+      "updatedAt": "2025-01-12T11:28:21.275Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "55223497-e31a-4258-9170-294d5ec51150",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
+                },
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
+              },
+              "quantity": 3600
+            }
+          ],
+          "grossWeight": 408,
+          "netWeight": 320,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 162
+          }
+        }
+      ],
+      "totalGrossWeight": 408,
+      "totalNetWeight": 320,
+      "totalNumberOfBoxes": 100,
+      "totalVolume": 1.5552
     }
   ],
   "hsCodes": [

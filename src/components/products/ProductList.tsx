@@ -15,6 +15,7 @@ export const ProductList: React.FC = () => {
   const [editingProduct, setEditingProduct] = useState<Product | null>(null);
   const [isFormVisible, setIsFormVisible] = useState(false);
   const [isHSCodeModalVisible, setIsHSCodeModalVisible] = useState(false);
+  const [searchTerm, setSearchTerm] = useState('');
 
   const fetchProducts = async () => {
     try {
@@ -99,6 +100,10 @@ export const ProductList: React.FC = () => {
     </Menu>
   );
 
+  const filteredProducts = products.filter(product => 
+    product.name.toLowerCase().includes(searchTerm.toLowerCase())
+  );
+
   if (isLoading) {
     return <LoadingSpinner text="Loading products..." />;
   }
@@ -123,6 +128,18 @@ export const ProductList: React.FC = () => {
         </div>
       </div>
 
+      <div className="mb-6">
+        <div className="max-w-xl">
+          <input
+            type="text"
+            placeholder="Search products..."
+            value={searchTerm}
+            onChange={(e) => setSearchTerm(e.target.value)}
+            className="w-full px-4 py-2 rounded-md border border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white focus:ring-2 focus:ring-blue-500 focus:border-blue-500"
+          />
+        </div>
+      </div>
+
       <div className="bg-white dark:bg-gray-800 shadow rounded-lg overflow-hidden">
         <table className="min-w-full divide-y divide-gray-200 dark:divide-gray-700">
           <thead className="bg-gray-50 dark:bg-gray-700">
@@ -139,7 +156,7 @@ export const ProductList: React.FC = () => {
             </tr>
           </thead>
           <tbody className="bg-white dark:bg-gray-800 divide-y divide-gray-200 dark:divide-gray-700">
-            {products.map((product) => (
+            {filteredProducts.map((product) => (
               <React.Fragment key={product.id}>
                 {product.variants.map((variant, variantIndex) => (
                   <tr 
@@ -194,7 +211,16 @@ export const ProductList: React.FC = () => {
         </table>
       </div>
 
-      {/* Modals */}
+      {filteredProducts.length === 0 && (
+        <div className="text-center py-12">
+          <p className="text-gray-500 dark:text-gray-400">
+            {searchTerm 
+              ? 'No products match your search'
+              : 'No products found. Create your first product!'}
+          </p>
+        </div>
+      )}
+
       <Modal
         isOpen={isFormVisible || !!editingProduct}
         onClose={() => {
