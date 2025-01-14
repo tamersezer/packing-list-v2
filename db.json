@@ -161,8 +161,8 @@
       "id": "5e5b",
       "name": "Yunanistan",
       "createdAt": "2025-01-11T18:19:28.913Z",
-      "updatedAt": "2025-01-11T20:33:11.855Z",
-      "status": "completed",
+      "updatedAt": "2025-01-14T14:37:57.833Z",
+      "status": "draft",
       "items": [
         {
           "id": "9b2ba773-fe6d-4a57-8e3e-ce1e10a8dabd",
@@ -299,57 +299,9 @@
             "width": 120,
             "height": 165
           }
-        },
-        {
-          "id": "6f04c950-d4b0-4443-85d3-647012dbe2a0",
-          "packageNo": "3",
-          "items": [],
-          "grossWeight": 24,
-          "netWeight": 0,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 0
-          }
-        },
-        {
-          "id": "fc73838f-75e1-45e9-a663-9d26314455a3",
-          "packageNo": "4",
-          "items": [],
-          "grossWeight": 24,
-          "netWeight": 0,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 0
-          }
-        },
-        {
-          "id": "723f3fff-5321-46ac-a71f-e46d834e6392",
-          "packageNo": "5",
-          "items": [],
-          "grossWeight": 24,
-          "netWeight": 0,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 0
-          }
-        },
-        {
-          "id": "e3145f50-e110-469b-bdac-3abde9108699",
-          "packageNo": "6",
-          "items": [],
-          "grossWeight": 24,
-          "netWeight": 0,
-          "dimensions": {
-            "length": 80,
-            "width": 120,
-            "height": 0
-          }
         }
       ],
-      "totalGrossWeight": 622,
+      "totalGrossWeight": 526,
       "totalNetWeight": 380,
       "totalNumberOfBoxes": 150,
       "totalVolume": 2.976
@@ -1082,7 +1034,7 @@
       "id": "3633",
       "name": "Bulgaristan",
       "createdAt": "2025-01-11T20:37:56.438Z",
-      "updatedAt": "2025-01-12T11:06:57.904Z",
+      "updatedAt": "2025-01-14T14:38:03.206Z",
       "status": "draft",
       "items": [
         {
@@ -1987,6 +1939,87 @@
       "totalNetWeight": 320,
       "totalNumberOfBoxes": 100,
       "totalVolume": 1.5552
+    },
+    {
+      "id": "37360494-29b7-49e1-9705-c4e3969f20a1",
+      "name": "",
+      "createdAt": "2025-01-14T14:36:31.710Z",
+      "updatedAt": "2025-01-14T14:37:06.528Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "5f84cc3d-43ac-4904-97da-e7c0aa98878d",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "af8a",
+                "name": "Parfüm",
+                "hsCode": "3303.00.10.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Small Box",
+                    "boxQuantity": 24,
+                    "boxDimensions": {
+                      "length": 30,
+                      "width": 20,
+                      "height": 15
+                    },
+                    "weights": {
+                      "gross": 2.5,
+                      "net": 2.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "v2",
+                    "name": "Large Box",
+                    "boxQuantity": 48,
+                    "boxDimensions": {
+                      "length": 40,
+                      "width": 30,
+                      "height": 20
+                    },
+                    "weights": {
+                      "gross": 5,
+                      "net": 4.4
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Small Box",
+                "boxQuantity": 24,
+                "boxDimensions": {
+                  "length": 30,
+                  "width": 20,
+                  "height": 15
+                },
+                "weights": {
+                  "gross": 2.5,
+                  "net": 2.2
+                },
+                "isDefault": true
+              },
+              "quantity": 2400
+            }
+          ],
+          "grossWeight": 298,
+          "netWeight": 220,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        }
+      ],
+      "totalGrossWeight": 298,
+      "totalNetWeight": 220,
+      "totalNumberOfBoxes": 100,
+      "totalVolume": 1.152
     }
   ],
   "hsCodes": [
