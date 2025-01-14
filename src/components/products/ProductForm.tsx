@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import type { Product, BoxVariant } from '../../types/Product';
-import { hsCodeService } from '../../services/api';
+import { hsCodeService } from '../../services';
 import { toast } from 'react-toastify';
 import { VariantForm } from './VariantForm';
 import SlidePanel from '../common/SlidePanel';

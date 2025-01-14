@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
-import { packingListService } from '../../services/api';
+import { packingListService } from '../../services';
 import type { PackingList } from '../../types/PackingList';
 import { toast } from 'react-toastify';
 import { LoadingSpinner } from '../common/LoadingSpinner';

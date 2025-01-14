@@ -1,6 +1,6 @@
 import React, { useState, useEffect, useCallback } from 'react';
 import { useParams, useNavigate } from 'react-router-dom';
-import { productService, packingListService } from '../../services/api';
+import { productService, packingListService } from '../../services';
 import type { Product } from '../../types/Product';
 import type { PackingList, PackageRow, PackageRange } from '../../types/PackingList';
 import { validatePackageRow, calculatePackingListTotals } from '../../types/PackingList';

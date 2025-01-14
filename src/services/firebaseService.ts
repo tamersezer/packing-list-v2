@@ -1,5 +1,5 @@
 import { initializeApp } from 'firebase/app';
-import { getFirestore, collection, doc, addDoc, getDoc, getDocs, updateDoc, deleteDoc, query, orderBy } from 'firebase/firestore';
+import { getFirestore, collection, doc, addDoc, getDoc, getDocs, updateDoc, deleteDoc, query, orderBy, where } from 'firebase/firestore';
 import type { PackingList } from '../types/PackingList';
 import type { Product } from '../types/Product';
 
@@ -15,30 +15,17 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
-// Firebase bağlantısını kontrol et
-console.log('Firebase Config:', {
-  apiKey: process.env.REACT_APP_FIREBASE_API_KEY ? 'exists' : 'missing',
-  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ? 'exists' : 'missing',
-  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID ? 'exists' : 'missing',
-  // ... diğer config değerleri
-});
-
 export const firebaseService = {
   // Packing Lists
-  async getAllPackingLists(): Promise<PackingList[]> {
-    try {
-      const querySnapshot = await getDocs(query(collection(db, 'packingLists'), orderBy('createdAt', 'desc')));
-      return querySnapshot.docs.map(doc => ({
-        ...doc.data(),
-        id: doc.id
-      })) as PackingList[];
-    } catch (error) {
-      console.error('Firebase error:', error);
-      throw error;
-    }
+  getAllPackingLists: async (): Promise<PackingList[]> => {
+    const querySnapshot = await getDocs(query(collection(db, 'packingLists'), orderBy('createdAt', 'desc')));
+    return querySnapshot.docs.map(doc => ({
+      ...doc.data(),
+      id: doc.id
+    })) as PackingList[];
   },
 
-  async getPackingListById(id: string): Promise<PackingList | null> {
+  getPackingListById: async (id: string): Promise<PackingList | null> => {
     const docRef = doc(db, 'packingLists', id);
     const docSnap = await getDoc(docRef);
     if (docSnap.exists()) {
@@ -47,22 +34,22 @@ export const firebaseService = {
     return null;
   },
 
-  async createPackingList(packingList: PackingList): Promise<string> {
+  createPackingList: async (packingList: PackingList): Promise<string> => {
     const docRef = await addDoc(collection(db, 'packingLists'), packingList);
     return docRef.id;
   },
 
-  async updatePackingList(id: string, packingList: PackingList): Promise<void> {
+  updatePackingList: async (id: string, packingList: PackingList): Promise<void> => {
     const docRef = doc(db, 'packingLists', id);
     await updateDoc(docRef, { ...packingList });
   },
 
-  async deletePackingList(id: string): Promise<void> {
+  deletePackingList: async (id: string): Promise<void> => {
     await deleteDoc(doc(db, 'packingLists', id));
   },
 
   // Products
-  async getAllProducts(): Promise<Product[]> {
+  getAllProducts: async (): Promise<Product[]> => {
     const querySnapshot = await getDocs(collection(db, 'products'));
     return querySnapshot.docs.map(doc => ({
       ...doc.data(),
@@ -70,26 +57,35 @@ export const firebaseService = {
     })) as Product[];
   },
 
-  async getProductById(id: string): Promise<Product | null> {
-    const docRef = doc(db, 'products', id);
-    const docSnap = await getDoc(docRef);
-    if (docSnap.exists()) {
-      return { ...docSnap.data(), id: docSnap.id } as Product;
-    }
-    return null;
-  },
-
-  async createProduct(product: Product): Promise<string> {
+  createProduct: async (product: Product): Promise<string> => {
     const docRef = await addDoc(collection(db, 'products'), product);
     return docRef.id;
   },
 
-  async updateProduct(id: string, product: Product): Promise<void> {
+  updateProduct: async (id: string, product: Product): Promise<void> => {
     const docRef = doc(db, 'products', id);
     await updateDoc(docRef, { ...product });
   },
 
-  async deleteProduct(id: string): Promise<void> {
+  deleteProduct: async (id: string): Promise<void> => {
     await deleteDoc(doc(db, 'products', id));
+  },
+
+  // HS Codes
+  getAllHSCodes: async (): Promise<string[]> => {
+    const querySnapshot = await getDocs(collection(db, 'hsCodes'));
+    return querySnapshot.docs.map(doc => doc.data().code);
+  },
+
+  addHSCode: async (code: string): Promise<void> => {
+    await addDoc(collection(db, 'hsCodes'), { code });
+  },
+
+  deleteHSCode: async (code: string): Promise<void> => {
+    const q = query(collection(db, 'hsCodes'), where('code', '==', code));
+    const querySnapshot = await getDocs(q);
+    querySnapshot.forEach(async (doc) => {
+      await deleteDoc(doc.ref);
+    });
   }
 }; 

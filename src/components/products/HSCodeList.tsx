@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { hsCodeService } from '../../services/api';
+import { hsCodeService } from '../../services';
 import { toast } from 'react-toastify';
 import { LoadingSpinner } from '../common/LoadingSpinner';
 
