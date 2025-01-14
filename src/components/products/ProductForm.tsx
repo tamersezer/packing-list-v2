@@ -184,26 +184,9 @@ export const ProductForm: React.FC<ProductFormProps> = ({
           <label className="block text-sm font-medium text-gray-700 dark:text-gray-300">
             HS Code
           </label>
-          {isCustomHSCode ? (
-            <div className="flex space-x-2">
-              <input
-                type="text"
-                value={customHSCode}
-                onChange={(e) => setCustomHSCode(e.target.value)}
-                placeholder="Enter HS Code (12 digits)"
-                className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
-              />
-              <button
-                type="button"
-                onClick={handleCustomHSCodeSubmit}
-                className="mt-1 px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
-              >
-                Add
-              </button>
-            </div>
-          ) : (
+          {!isCustomHSCode ? (
             <select
-              value={product.hsCode}
+              value={product.hsCode || ''}
               onChange={(e) => handleHSCodeChange(e.target.value)}
               className="mt-1 block w-full rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
               required
@@ -214,6 +197,35 @@ export const ProductForm: React.FC<ProductFormProps> = ({
               ))}
               <option value="custom">Enter Custom HS Code</option>
             </select>
+          ) : (
+            <div className="space-y-2">
+              <div className="flex space-x-2 w-full">
+                <input
+                  type="text"
+                  value={customHSCode}
+                  onChange={(e) => setCustomHSCode(e.target.value)}
+                  placeholder="Enter 12-digit HS Code"
+                  className="mt-1 block flex-grow rounded-md border-gray-300 dark:border-gray-600 dark:bg-gray-700 dark:text-white"
+                />
+                <button
+                  type="button"
+                  onClick={() => {
+                    setIsCustomHSCode(false);
+                    setCustomHSCode('');
+                  }}
+                  className="px-3 py-2 bg-gray-600 text-white rounded-md hover:bg-gray-700 w-auto"
+                >
+                  Back to List
+                </button>
+              </div>
+              <button
+                type="button"
+                onClick={handleCustomHSCodeSubmit}
+                className="w-full px-4 py-2 bg-blue-600 text-white rounded-md hover:bg-blue-700"
+              >
+                Add HS Code
+              </button>
+            </div>
           )}
         </div>
 
