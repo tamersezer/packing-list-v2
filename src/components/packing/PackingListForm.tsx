@@ -93,20 +93,26 @@ export const PackingListForm: React.FC = () => {
   const findLastPackageNumber = useCallback(() => {
     if (packingList.items.length === 0) return 1;
 
-    return packingList.items.reduce((maxNo, item) => {
-      // Eğer packageRange varsa end değerini, yoksa packageNo'yu kontrol et
-      const currentNo = item.packageRange 
-        ? item.packageRange.end
-        : parseInt(item.packageNo);
-      return Math.max(maxNo, currentNo);
-    }, 0) + 1;
+    // Tüm paketlerin numaralarını kontrol et
+    const allNumbers = packingList.items.flatMap(item => {
+      if (item.packageRange) {
+        // Range varsa başlangıç ve bitiş numaralarını al
+        return [item.packageRange.start, item.packageRange.end];
+      }
+      // Tek numara varsa onu al
+      return [parseInt(item.packageNo)];
+    }).filter(num => !isNaN(num));
+
+    // Son numaradan bir fazlasını döndür
+    return allNumbers.length > 0 ? Math.max(...allNumbers) + 1 : 1;
   }, [packingList.items]);
 
   // Component mount olduğunda veya items değiştiğinde son numarayı güncelle
   useEffect(() => {
     const lastNo = findLastPackageNumber();
     setNextPackageNo(lastNo);
-  }, [findLastPackageNumber]);
+    setPackageRange({ start: lastNo, end: lastNo });
+  }, [packageType, findLastPackageNumber]);
 
   // Paket numarası formatlaması
   const formatPackageNo = (packageType: PackageType, start: number, end: number) => {
@@ -138,8 +144,14 @@ export const PackingListForm: React.FC = () => {
 
     const newPackage: PackageRow = {
       id: crypto.randomUUID(),
-      packageNo: formatPackageNo(packageType, packageRange.start, packageRange.end),
-      packageRange: packageType === 'carton' ? packageRange : undefined,
+      packageNo: formatPackageNo(
+        packageType, 
+        packageRange.start,
+        packageRange.end
+      ),
+      packageRange: packageType === 'carton' 
+        ? { start: packageRange.start, end: packageRange.end } 
+        : undefined,
       items: [],
       grossWeight: packageType === 'pallet' ? PALLET_WEIGHT : 0,
       netWeight: 0,
@@ -148,15 +160,6 @@ export const PackingListForm: React.FC = () => {
         : { length: 0, width: 0, height: 0 }
     };
 
-    setPackingList(prev => ({
-      ...prev,
-      items: [...prev.items, newPackage]
-    }));
-
-    // Sonraki paket numarasını güncelle
-    const nextNo = packageType === 'carton' ? packageRange.end + 1 : nextPackageNo + 1;
-    setNextPackageNo(nextNo);
-    setPackageRange({ start: nextNo, end: nextNo });
     setEditingPackage(newPackage);
   };
 
@@ -167,7 +170,6 @@ export const PackingListForm: React.FC = () => {
       return;
     }
 
-    // Eğer palet ise ve henüz palet ağırlığı eklenmemişse ekle
     const isPallet = updatedPackage.dimensions.length === 80 && updatedPackage.dimensions.width === 120;
     const finalPackage = {
       ...updatedPackage,
@@ -176,12 +178,27 @@ export const PackingListForm: React.FC = () => {
         : updatedPackage.grossWeight
     };
 
-    setPackingList(prev => ({
-      ...prev,
-      items: prev.items.map(item => 
-        item.id === finalPackage.id ? finalPackage : item
-      )
-    }));
+    // Eğer paket daha önce eklenmemişse (yeni paket), listeye ekle
+    if (!packingList.items.find(item => item.id === finalPackage.id)) {
+      setPackingList(prev => ({
+        ...prev,
+        items: [...prev.items, finalPackage]
+      }));
+
+      // Sonraki paket numarasını güncelle
+      const nextNo = findLastPackageNumber();
+      setNextPackageNo(nextNo);
+      setPackageRange({ start: nextNo, end: nextNo });
+    } else {
+      // Mevcut paketi güncelle
+      setPackingList(prev => ({
+        ...prev,
+        items: prev.items.map(item => 
+          item.id === finalPackage.id ? finalPackage : item
+        )
+      }));
+    }
+
     setEditingPackage(null);
   };
 
@@ -244,6 +261,16 @@ export const PackingListForm: React.FC = () => {
       return;
     }
     setEditingPackage(pkg);
+  };
+
+  const handleCloseModal = () => {
+    setEditingPackage(null);
+    // Eğer yeni paket ekleme işlemi iptal edildiyse, numaraları sıfırla
+    if (!packingList.items.find(item => item.id === editingPackage?.id)) {
+      const lastNo = findLastPackageNumber();
+      setNextPackageNo(lastNo);
+      setPackageRange({ start: lastNo, end: lastNo });
+    }
   };
 
   if (isLoading) {
@@ -472,7 +499,7 @@ export const PackingListForm: React.FC = () => {
       {editingPackage && (
         <EditPackageModal
           isOpen={!!editingPackage}
-          onClose={() => setEditingPackage(null)}
+          onClose={handleCloseModal}
           onSave={handleSavePackage}
           packageData={editingPackage}
           allProducts={products}
