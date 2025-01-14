@@ -58,13 +58,33 @@ export const firebaseService = {
   },
 
   createPackingList: async (packingList: PackingList): Promise<string> => {
-    const docRef = await addDoc(collection(db, 'packingLists'), packingList);
-    return docRef.id;
+    try {
+      // undefined değerleri filtrele
+      const cleanData = JSON.parse(JSON.stringify(packingList));
+      
+      console.log('Creating packing list (cleaned):', cleanData); // Debug log
+      
+      const docRef = await addDoc(collection(db, 'packingLists'), cleanData);
+      return docRef.id;
+    } catch (error) {
+      console.error('Create packing list error:', error);
+      throw error;
+    }
   },
 
   updatePackingList: async (id: string, packingList: PackingList): Promise<void> => {
-    const docRef = doc(db, 'packingLists', id);
-    await updateDoc(docRef, { ...packingList });
+    try {
+      const docRef = doc(db, 'packingLists', id);
+      
+      // undefined değerleri filtrele
+      const cleanData = JSON.parse(JSON.stringify(packingList));
+      
+      console.log('Updating packing list (cleaned):', id, cleanData); // Debug log
+      await updateDoc(docRef, cleanData);
+    } catch (error) {
+      console.error('Update packing list error:', error);
+      throw error;
+    }
   },
 
   deletePackingList: async (id: string): Promise<void> => {

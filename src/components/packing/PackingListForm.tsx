@@ -227,21 +227,58 @@ export const PackingListForm: React.FC = () => {
   // Save packing list
   const handleSave = async () => {
     try {
-      const updatedPackingList = {
-          ...packingList,
-        updatedAt: new Date().toISOString()
-        };
+      // Veriyi temizle ve kontrol et
+      const cleanPackingList: PackingList = {
+        id: packingList.id,
+        name: packingList.name,
+        createdAt: packingList.createdAt,
+        updatedAt: new Date().toISOString(),
+        status: packingList.status,
+        items: packingList.items.map(item => ({
+          id: item.id,
+          packageNo: item.packageNo,
+          packageRange: item.packageRange,
+          items: item.items.map(packageItem => ({
+            product: {
+              id: packageItem.product.id,
+              name: packageItem.product.name,
+              hsCode: packageItem.product.hsCode,
+              variants: packageItem.product.variants
+            },
+            variant: packageItem.variant,
+            quantity: packageItem.quantity
+          })),
+          dimensions: {
+            length: item.dimensions.length,
+            width: item.dimensions.width,
+            height: item.dimensions.height
+          },
+          grossWeight: item.grossWeight,
+          netWeight: item.netWeight
+        })),
+        totalGrossWeight: packingList.totalGrossWeight,
+        totalNetWeight: packingList.totalNetWeight,
+        totalNumberOfBoxes: packingList.totalNumberOfBoxes,
+        totalVolume: packingList.totalVolume
+      };
 
-        if (id) {
-          await packingListService.update(id, updatedPackingList);
-        } else {
-        await packingListService.create(updatedPackingList);
+      console.log('Saving packing list:', cleanPackingList);
+
+      if (id) {
+        await packingListService.update(id, cleanPackingList);
+      } else {
+        await packingListService.create(cleanPackingList);
       }
 
       toast.success('Packing list saved successfully');
       navigate('/packing-list');
     } catch (error) {
-      toast.error('Failed to save packing list');
+      console.error('Save error:', error);
+      if (error instanceof Error) {
+        toast.error(`Failed to save packing list: ${error.message}`);
+      } else {
+        toast.error('Failed to save packing list');
+      }
     }
   };
 
