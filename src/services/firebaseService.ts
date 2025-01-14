@@ -15,14 +15,27 @@ const firebaseConfig = {
 const app = initializeApp(firebaseConfig);
 const db = getFirestore(app);
 
+// Firebase bağlantısını kontrol et
+console.log('Firebase Config:', {
+  apiKey: process.env.REACT_APP_FIREBASE_API_KEY ? 'exists' : 'missing',
+  authDomain: process.env.REACT_APP_FIREBASE_AUTH_DOMAIN ? 'exists' : 'missing',
+  projectId: process.env.REACT_APP_FIREBASE_PROJECT_ID ? 'exists' : 'missing',
+  // ... diğer config değerleri
+});
+
 export const firebaseService = {
   // Packing Lists
   async getAllPackingLists(): Promise<PackingList[]> {
-    const querySnapshot = await getDocs(query(collection(db, 'packingLists'), orderBy('createdAt', 'desc')));
-    return querySnapshot.docs.map(doc => ({
-      ...doc.data(),
-      id: doc.id
-    })) as PackingList[];
+    try {
+      const querySnapshot = await getDocs(query(collection(db, 'packingLists'), orderBy('createdAt', 'desc')));
+      return querySnapshot.docs.map(doc => ({
+        ...doc.data(),
+        id: doc.id
+      })) as PackingList[];
+    } catch (error) {
+      console.error('Firebase error:', error);
+      throw error;
+    }
   },
 
   async getPackingListById(id: string): Promise<PackingList | null> {
