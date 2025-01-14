@@ -25,13 +25,18 @@ console.log('Firebase Config:', {
   appId: process.env.REACT_APP_FIREBASE_APP_ID ? 'exists' : 'missing'
 });
 
-// Firebase bağlantısını test edelim
-try {
-  const testDoc = await getDocs(collection(db, 'products'));
-  console.log('Firebase connection test:', testDoc.empty ? 'No products' : 'Products exist');
-} catch (error) {
-  console.error('Firebase connection error:', error);
-}
+// Firebase bağlantı testi fonksiyonu
+const testFirebaseConnection = async () => {
+  try {
+    const testDoc = await getDocs(collection(db, 'products'));
+    console.log('Firebase connection test:', testDoc.empty ? 'No products' : 'Products exist');
+  } catch (error) {
+    console.error('Firebase connection error:', error);
+  }
+};
+
+// Bağlantıyı test et
+testFirebaseConnection();
 
 export const firebaseService = {
   // Packing Lists
