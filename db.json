@@ -1689,6 +1689,87 @@
       "totalNetWeight": 942,
       "totalNumberOfBoxes": 110,
       "totalVolume": 1.242
+    },
+    {
+      "id": "d4d5f69e-9b9d-4d15-92b3-62bf7d388be8",
+      "name": ":)",
+      "createdAt": "2025-01-14T19:49:05.084Z",
+      "updatedAt": "2025-01-14T19:49:30.335Z",
+      "status": "draft",
+      "items": [
+        {
+          "id": "88face3a-b39b-4c66-ba06-ea2be7c57182",
+          "packageNo": "1",
+          "items": [
+            {
+              "product": {
+                "id": "bf9b",
+                "name": "Deodorant",
+                "hsCode": "3307.20.00.00.00",
+                "variants": [
+                  {
+                    "id": "v1",
+                    "name": "Standard Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 35,
+                      "width": 25,
+                      "height": 18
+                    },
+                    "weights": {
+                      "gross": 3.6,
+                      "net": 3.2
+                    },
+                    "isDefault": true
+                  },
+                  {
+                    "id": "2c32eee6-5b65-4cb9-bea8-2ef19ad43392",
+                    "name": "Airway Box",
+                    "boxQuantity": 36,
+                    "boxDimensions": {
+                      "length": 37,
+                      "width": 27,
+                      "height": 19
+                    },
+                    "weights": {
+                      "net": 3.2,
+                      "gross": 3.8
+                    },
+                    "isDefault": false
+                  }
+                ]
+              },
+              "variant": {
+                "id": "v1",
+                "name": "Standard Box",
+                "boxQuantity": 36,
+                "boxDimensions": {
+                  "length": 35,
+                  "width": 25,
+                  "height": 18
+                },
+                "weights": {
+                  "gross": 3.6,
+                  "net": 3.2
+                },
+                "isDefault": true
+              },
+              "quantity": 3600
+            }
+          ],
+          "grossWeight": 408,
+          "netWeight": 320,
+          "dimensions": {
+            "length": 80,
+            "width": 120,
+            "height": 120
+          }
+        }
+      ],
+      "totalGrossWeight": 408,
+      "totalNetWeight": 320,
+      "totalNumberOfBoxes": 100,
+      "totalVolume": 1.152
     }
   ],
   "hsCodes": [
